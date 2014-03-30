@@ -1,6 +1,7 @@
 public class TextGame implements GameModelInterface {
 
   private char[] letters;
+  private int numGuessesLeft = 10;
 
   public TextGame(Dictionary wordlist) {
     letters = wordlist.selectRandomWord().toCharArray();
@@ -17,7 +18,7 @@ public class TextGame implements GameModelInterface {
   };
 
   public int guessLeft() {
-    return 1;
+    return numGuessesLeft;
   };
 
   public String getLetters() {
