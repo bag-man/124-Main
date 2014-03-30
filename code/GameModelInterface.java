@@ -1,5 +1,5 @@
-public interface GameModelInterface
-{
+public interface GameModelInterface {
+
   //returns what the user is allowed to see
   public String getVisible();
 
