@@ -2,11 +2,13 @@ public class TextGame implements GameModelInterface {
 
   private char[] letters;
   private boolean[] found;
+  private String word;
   private int length;
   private int numGuessesLeft = 10;
 
   public TextGame(Dictionary wordlist) {
-    letters = wordlist.selectRandomWord().toCharArray();
+    word = wordlist.selectRandomWord();
+    letters = word.toCharArray();
     length = letters.length;
     found = new boolean[length];
   }
@@ -29,7 +31,9 @@ public class TextGame implements GameModelInterface {
     String result = "";
     for(int i=0; i<length; i++)
     {
-      if(found[i])
+      if(letters[i] == ' ')
+	result += " ";
+      else if(found[i])
 	result += letters[i];
       else
 	result += "*";
@@ -38,16 +42,19 @@ public class TextGame implements GameModelInterface {
   };
 
   public boolean tryThis(char letter){
-    for(int i = 0; i<length; i++) {
+    int i;
+    for(i = 0; i<length; i++) {
       if(letters[i] == letter)
 	found[i] = true;
     }
-    return true;
+    return found[i];
   };
 
   public boolean tryWord(String guess) {
-    return true;
+    if(guess.equals(word))
+      return true;
+    else
+      return false;
   };
-
 
 }
