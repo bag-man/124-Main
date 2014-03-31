@@ -44,12 +44,15 @@ public class TextGame implements GameModelInterface {
     numGuessesLeft--;
     guesses += letter;
     int i;
+    boolean correct = false;
 
     for(i = 0; i<length; i++) {
-      if(letters[i] == letter)
+      if(letters[i] == letter) {
 	found[i] = true;
+        correct = true;
+      }
     }
-    return found[i];
+    return correct;
   };
 
   public boolean tryWord(String guess) {
