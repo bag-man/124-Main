@@ -15,24 +15,6 @@ public class TextGame implements GameModelInterface {
   }
 
   public String getVisible() {
-    return "string"; //use getWordView instead.
-
-  };
-
-  public String getHidden() {
-    return "string"; //use getWordView instead.
-
-  };
-
-  public int guessLeft() {
-    return numGuessesLeft;
-  };
-
-  public String getLetters() {
-    return guesses;
-  }
-
-  public String getWordView() {
     String result = "";
     for(int i=0; i<length; i++)
     {
@@ -45,6 +27,18 @@ public class TextGame implements GameModelInterface {
     }
     return result;
   };
+
+  public String getHidden() {
+    return word;
+  };
+
+  public int guessLeft() {
+    return numGuessesLeft;
+  };
+
+  public String getLetters() {
+    return guesses;
+  }
 
   public boolean tryThis(char letter){
     numGuessesLeft--;
