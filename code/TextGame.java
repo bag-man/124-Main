@@ -66,4 +66,12 @@ public class TextGame implements GameModelInterface {
       return false;
   };
 
+  public boolean won() {
+    for (boolean correct : found) {
+      if (!correct)
+        return false;
+    }
+    return true;
+  }
+
 }
