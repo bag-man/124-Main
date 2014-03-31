@@ -10,8 +10,13 @@ public class RunGame {
     System.out.println("I have picked a word, you have to guess it!");
     System.out.println("Here is the word: " + m.getVisible());
     System.out.print("Your guess: ");
-    char c = reader.next().charAt(0);
-    m.tryThis(c);
+    String guess = reader.nextLine();
+
+    if(guess.length() >1)
+      m.tryWord(guess);
+    else
+      m.tryThis(guess.charAt(0));
+
     System.out.println("Updated: " + m.getVisible());
   }
 

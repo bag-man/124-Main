@@ -1,3 +1,5 @@
+import java.util.Arrays;
+
 public class TextGame implements GameModelInterface {
 
   private char[] letters;
@@ -57,9 +59,10 @@ public class TextGame implements GameModelInterface {
 
   public boolean tryWord(String guess) {
     numGuessesLeft--;
-    if(guess.equals(word))
+    if(guess.equals(word)) {
+      Arrays.fill(found, true);
       return true;
-    else
+    } else
       return false;
   };
 
