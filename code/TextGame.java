@@ -3,6 +3,7 @@ public class TextGame implements GameModelInterface {
   private char[] letters;
   private boolean[] found;
   private String word;
+  private String guesses;
   private int length;
   private int numGuessesLeft = 10;
 
@@ -14,12 +15,12 @@ public class TextGame implements GameModelInterface {
   }
 
   public String getVisible() {
-    return "string";
+    return "string"; //use getWordView instead.
 
   };
 
   public String getHidden() {
-    return "string";
+    return "string"; //use getWordView instead.
 
   };
 
@@ -28,6 +29,10 @@ public class TextGame implements GameModelInterface {
   };
 
   public String getLetters() {
+    return guesses;
+  }
+
+  public String getWordView() {
     String result = "";
     for(int i=0; i<length; i++)
     {
@@ -42,7 +47,10 @@ public class TextGame implements GameModelInterface {
   };
 
   public boolean tryThis(char letter){
+    numGuessesLeft--;
+    guesses += letter;
     int i;
+
     for(i = 0; i<length; i++) {
       if(letters[i] == letter)
 	found[i] = true;
@@ -51,6 +59,7 @@ public class TextGame implements GameModelInterface {
   };
 
   public boolean tryWord(String guess) {
+    numGuessesLeft--;
     if(guess.equals(word))
       return true;
     else
