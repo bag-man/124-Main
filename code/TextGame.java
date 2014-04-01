@@ -1,77 +1,28 @@
-import java.util.Arrays;
+import java.util.Scanner;
 
-public class TextGame implements GameModelInterface {
+public class TextGame {
 
-  private char[] letters;
-  private boolean[] found;
-  private String word;
-  private String guesses;
-  private int length;
-  private int numGuessesLeft = 10;
+  private GameModel m;
+  Scanner reader = new Scanner(System.in);
 
-  public TextGame(Dictionary wordlist) {
-    word = wordlist.selectRandomWord();
-    letters = word.toCharArray();
-    length = letters.length;
-    found = new boolean[length];
-  }
+  public TextGame(GameModel model) {
+    m = model;
 
-  public String getVisible() {
-    String result = "";
-    for(int i=0; i<length; i++)
-    {
-      if(letters[i] == ' ')
-	result += " ";
-      else if(found[i])
-	result += letters[i];
+    while(!m.won()) {
+      System.out.println("I have picked a word, you have to guess it!");
+      System.out.println("Here is the word: " + m.getVisible());
+      System.out.print("Your guess: ");
+      String guess = reader.nextLine();
+
+      if(guess.length() >1)
+	m.tryWord(guess);
       else
-	result += "*";
+	m.tryThis(guess.charAt(0));
+
+      System.out.println("Updated: " + m.getVisible());
+      System.out.print("\033c"); //Clear screen in bash
     }
-    return result;
-  };
-
-  public String getHidden() {
-    return word;
-  };
-
-  public int guessLeft() {
-    return numGuessesLeft;
-  };
-
-  public String getLetters() {
-    return guesses;
+    System.out.println("Updated: " + m.getVisible());
+    System.out.println("You have won!");
   }
-
-  public boolean tryThis(char letter){
-    numGuessesLeft--;
-    guesses += letter;
-    int i;
-    boolean correct = false;
-
-    for(i = 0; i<length; i++) {
-      if(letters[i] == letter) {
-	found[i] = true;
-        correct = true;
-      }
-    }
-    return correct;
-  };
-
-  public boolean tryWord(String guess) {
-    numGuessesLeft--;
-    if(guess.equals(word)) {
-      Arrays.fill(found, true);
-      return true;
-    } else
-      return false;
-  };
-
-  public boolean won() {
-    for (boolean correct : found) {
-      if (!correct)
-        return false;
-    }
-    return true;
-  }
-
 }
