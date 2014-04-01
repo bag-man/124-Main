@@ -14,8 +14,7 @@ public class Dictionary {
     BufferedReader file = new BufferedReader(new FileReader(fileName));
     numRecords = Integer.parseInt(file.readLine());
 
-    for(int i=0; i < numRecords; i++)
-    {
+    for(int i=0; i < numRecords; i++) {
       String word = file.readLine();
       wordlist.add(word);
     }

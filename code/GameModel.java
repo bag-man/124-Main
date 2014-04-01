@@ -18,8 +18,7 @@ public class GameModel implements GameModelInterface {
 
   public String getVisible() {
     String result = "";
-    for(int i=0; i<length; i++)
-    {
+    for(int i=0; i<length; i++) {
       if(letters[i] == ' ')
 	result += " ";
       else if(found[i])
