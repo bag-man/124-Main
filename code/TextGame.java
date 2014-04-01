@@ -8,9 +8,10 @@ public class TextGame {
   public TextGame(GameModel model) {
     m = model;
 
-    while(!m.won()) {
-      System.out.println("I have picked a word, you have to guess it!");
+    while(!m.won() && m.guessLeft() != 0) {
+      System.out.println("I have picked a pirate word, you have to guess it! Hint: it may use punctuation!");
       System.out.println("Here is the word: " + m.getVisible());
+      System.out.println("You have " + m.guessLeft() + " guesses left");
       System.out.print("Your guess: ");
       String guess = reader.nextLine();
 
@@ -19,10 +20,14 @@ public class TextGame {
       else
 	m.tryThis(guess.charAt(0));
 
-      System.out.println("Updated: " + m.getVisible());
+      System.out.println("The word: " + m.getVisible());
       System.out.print("\033c"); //Clear screen in bash
     }
-    System.out.println("Updated: " + m.getVisible());
-    System.out.println("You have won!");
+    if(m.won()) {
+      System.out.println("Updated: " + m.getVisible());
+      System.out.println("You have won!");
+    } else {
+      System.out.println("Sorry you lost! The word was: " + m.getHidden());
+    }
   }
 }
