@@ -17,8 +17,8 @@ public class TextGame {
 
       if(guess.length() >1)
 	m.tryWord(guess);
-      else
-	m.tryThis(guess.charAt(0)); //Crashes if there is no input
+      else if (!guess.isEmpty())
+	m.tryThis(guess.charAt(0));
 
       System.out.println("The word: " + m.getVisible());
       System.out.print("\033c"); //Clear screen in bash
