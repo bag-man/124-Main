@@ -70,7 +70,7 @@ public class SwingGame extends JFrame {
 
     panel.add(pirateShip);
     panel.add(pirate);
-    panel.setComponentZOrder(pirate, 3);
+    panel.setComponentZOrder(pirate, 0);
 
   }
 
