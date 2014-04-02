@@ -24,17 +24,17 @@ public class SwingGame extends JFrame {
     panel.setLayout(null);
 
     panel.add(
-      AddButton(0, 0, 100, 100, "NAME",  new Callable<Integer>() {
+      AddButton(0, 0, 100, 100, "NAME",  new Callable<Void>() {
 	@Override
-	 public Integer call() {
+	 public Void call() {
 	   return methodToPass();
 	 }
       })
     );
   }
 
-  private JButton AddButton(int x, int y, int w, int h, String name, Callable<Integer> function) {
-    final Callable<Integer> runThis = function;
+  private JButton AddButton(int x, int y, int w, int h, String name, Callable<Void> function) {
+    final Callable<Void> runThis = function;
     JButton submitButton = new JButton(name);
     submitButton.setBounds(x, y, w, h); 
 
@@ -52,8 +52,8 @@ public class SwingGame extends JFrame {
     return submitButton;
   }
 
-  public int methodToPass() {
+  public Void methodToPass() {
     System.out.println("Perform an Action here!");
-    return 1;
+    return null;
   }
 }
