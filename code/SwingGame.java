@@ -4,6 +4,7 @@ import java.awt.event.ActionListener;
 import javax.swing.JFrame;
 import javax.swing.JButton;
 import javax.swing.JPanel;
+import javax.swing.JTextField;
 
 /* Remember to turn on window decor!!! */
 
@@ -23,8 +24,13 @@ public class SwingGame extends JFrame {
     getContentPane().add(panel);
     panel.setLayout(null);
 
+    JTextField field = new JTextField();
+    field.setBounds(0, 0, 150, 25);
+    
+    panel.add(field);
+
     panel.add(
-      AddButton(0, 0, 100, 100, "NAME",  new Callable<Void>() {
+      AddButton(150, 0, 120, 25, "Submit",  new Callable<Void>() {
 	@Override
 	 public Void call() {
 	   return methodToPass();
