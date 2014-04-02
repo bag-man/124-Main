@@ -1,6 +1,6 @@
 import java.awt.event.ActionEvent;
+import java.util.concurrent.Callable;
 import java.awt.event.ActionListener;
-
 import javax.swing.JFrame;
 import javax.swing.JButton;
 import javax.swing.JPanel;
@@ -21,21 +21,34 @@ public class SwingGame extends JFrame {
 
     JPanel panel = new JPanel();
     getContentPane().add(panel);
-
     panel.setLayout(null);
 
-    JButton submitButton = new JButton("Submit");
-    submitButton.setBounds(0, 0, 120, 30); //X, Y, W, H
+    panel.add(
+      AddButton(0, 0, 100, 100, "NAME",  new Callable<Integer>() {
+	@Override
+	 public Integer call() {
+	   return methodToPass();
+	 }
+      })
+    );
+  }
+
+  private JButton AddButton(int x, int y, int w, int h, String name, Callable<Integer> function) {
+    JButton submitButton = new JButton(name);
+    submitButton.setBounds(x, y, w, h); //X, Y, W, H
 
     submitButton.addActionListener(new ActionListener() {
       @Override
       public void actionPerformed(ActionEvent event) {
-        System.out.println("Perform an action here!");
+        function.call();
       }
     });
-
-    panel.add(submitButton);
-
+    
+    return submitButton;
   }
 
+  public int methodToPass() {
+    System.out.println("Perform an Action here!");
+    return 1;
+  }
 }
