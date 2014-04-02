@@ -12,8 +12,6 @@ import javax.swing.JTextField;
 import javax.swing.ImageIcon;
 import javax.imageio.ImageIO;
 
-/* Remember to turn on window decor!!! */
-
 public class SwingGame extends JFrame {
 
   private GameModel m;
@@ -70,7 +68,7 @@ public class SwingGame extends JFrame {
 
     panel.add(pirateShip);
     panel.add(pirate);
-    panel.setComponentZOrder(pirate, 0);
+    panel.setComponentZOrder(pirate, 0); // Draw last
 
   }
 
