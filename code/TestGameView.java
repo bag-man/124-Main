@@ -11,6 +11,7 @@ public class TestGameView {
 
 	Dictionary wordlist = new Dictionary("../piratewords.txt");
 	GameModel model = new GameModel(wordlist);
+	//TextGame theGame = new TextGame(model); 
 
 	@Override
 	public void run() {
