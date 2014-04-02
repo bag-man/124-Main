@@ -32,7 +32,7 @@ public class SwingGame extends JFrame {
     panel.add(inputArea1);
   
     label1 = new JLabel("This is a pirate hangman game." + m.getVisible());
-    label1.setBounds(0,30,500,200);
+    label1.setBounds(0,30,500,30);
     panel.add(label1);
 
     panel.add(
