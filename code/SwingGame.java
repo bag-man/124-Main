@@ -3,6 +3,7 @@ import java.util.concurrent.Callable;
 import java.awt.event.ActionListener;
 import javax.swing.JFrame;
 import javax.swing.JButton;
+import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
@@ -12,6 +13,7 @@ public class SwingGame extends JFrame {
 
   private GameModel m;
   private JTextField inputArea1;
+  private JLabel label1;
 
   public SwingGame(GameModel model) {
     m = model;
@@ -27,14 +29,17 @@ public class SwingGame extends JFrame {
 
     inputArea1 = new JTextField();
     inputArea1.setBounds(0, 0, 150, 25);
-    
     panel.add(inputArea1);
+  
+    label1 = new JLabel("This is a pirate hangman game." + m.getVisible());
+    label1.setBounds(0,30,500,200);
+    panel.add(label1);
 
     panel.add(
       AddButton(150, 0, 120, 25, "Submit",  new Callable<Void>() {
 	@Override
 	 public Void call() {
-	   return methodToPass();
+	   return submitGuess();
 	 }
       })
     );
@@ -59,8 +64,16 @@ public class SwingGame extends JFrame {
     return submitButton;
   }
 
-  public Void methodToPass() {
-    System.out.println("You input: " + inputArea1.getText());
+  public Void submitGuess() {
+    String guess = inputArea1.getText();
+ 
+    if(guess.length() >1)
+      m.tryWord(guess);
+    else if (!guess.isEmpty())
+      m.tryThis(guess.charAt(0));
+ 
+    label1.setText("This is the updated result: " + m.getVisible());
+
     return null;
   }
 }
