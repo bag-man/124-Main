@@ -11,6 +11,7 @@ import javax.swing.JTextField;
 public class SwingGame extends JFrame {
 
   private GameModel m;
+  private JTextField inputArea1;
 
   public SwingGame(GameModel model) {
     m = model;
@@ -24,10 +25,10 @@ public class SwingGame extends JFrame {
     getContentPane().add(panel);
     panel.setLayout(null);
 
-    JTextField field = new JTextField();
-    field.setBounds(0, 0, 150, 25);
+    inputArea1 = new JTextField();
+    inputArea1.setBounds(0, 0, 150, 25);
     
-    panel.add(field);
+    panel.add(inputArea1);
 
     panel.add(
       AddButton(150, 0, 120, 25, "Submit",  new Callable<Void>() {
@@ -59,7 +60,7 @@ public class SwingGame extends JFrame {
   }
 
   public Void methodToPass() {
-    System.out.println("Perform an Action here!");
+    System.out.println("You input: " + inputArea1.getText());
     return null;
   }
 }
