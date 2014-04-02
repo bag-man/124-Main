@@ -34,13 +34,18 @@ public class SwingGame extends JFrame {
   }
 
   private JButton AddButton(int x, int y, int w, int h, String name, Callable<Integer> function) {
+    final Callable<Integer> runThis = function;
     JButton submitButton = new JButton(name);
-    submitButton.setBounds(x, y, w, h); //X, Y, W, H
+    submitButton.setBounds(x, y, w, h); 
 
     submitButton.addActionListener(new ActionListener() {
       @Override
       public void actionPerformed(ActionEvent event) {
-        function.call();
+        try {
+	  runThis.call();
+        } catch (Exception e) {
+          System.out.println("Error: " + e);
+        }
       }
     });
     
