@@ -95,12 +95,15 @@ public class SwingGame extends JFrame {
   public Void submitGuess() {
     String guess = inputArea1.getText();
  
-    if(guess.length() >1)
-      if(!m.tryWord(guess))
+    if(guess.length() >1) {
+      if(!m.tryWord(guess)) {
 	piratePos += -5;
-    else if (!guess.isEmpty())
-      if(!m.tryThis(guess.charAt(0)))
+      }
+    } else if (!guess.isEmpty()) {
+      if(!m.tryThis(guess.charAt(0))) {
 	piratePos += -5;
+      }
+    }
  
     label1.setText("This is the updated result: " + m.getVisible());
     pirate.setBounds(piratePos,185,22,44);
