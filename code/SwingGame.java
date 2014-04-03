@@ -105,6 +105,9 @@ public class SwingGame extends JFrame {
   }
 
   public Void resetGame() {
+    while(!m.selectNewWord()){
+      m.selectNewWord();
+    }
     pirate.setBounds(180,185,22,44);
     piratePos = 180;
     targetWord = m.getVisible();

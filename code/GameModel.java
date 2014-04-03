@@ -8,8 +8,10 @@ public class GameModel implements GameModelInterface {
   private String guesses;
   private int length;
   private int numGuessesLeft = 10;
+  private Dictionary wordlist;
 
-  public GameModel(Dictionary wordlist) {
+  public GameModel(Dictionary w) {
+    wordlist = w;
     word = wordlist.selectRandomWord();
     letters = word.toCharArray();
     length = letters.length;
@@ -71,6 +73,16 @@ public class GameModel implements GameModelInterface {
         return false;
     }
     return true;
+  }
+
+  public boolean selectNewWord() {
+    String newWord = wordlist.selectRandomWord();
+    if(!word.equals(newWord)) {
+      word = newWord;
+      return true;
+    } else {
+      return false;
+    }
   }
 
 }
