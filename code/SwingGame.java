@@ -18,6 +18,7 @@ public class SwingGame extends JFrame {
   private JTextField inputArea1;
   private JLabel label1, pirateShip, pirate;
   private BufferedImage imagePirateShip, imagePirate;
+  private int piratePos = 180;
 
   public SwingGame(GameModel model) {
     m = model;
@@ -95,11 +96,14 @@ public class SwingGame extends JFrame {
     String guess = inputArea1.getText();
  
     if(guess.length() >1)
-      m.tryWord(guess);
+      if(!m.tryWord(guess))
+	piratePos += -5;
     else if (!guess.isEmpty())
-      m.tryThis(guess.charAt(0));
+      if(!m.tryThis(guess.charAt(0)))
+	piratePos += -5;
  
     label1.setText("This is the updated result: " + m.getVisible());
+    pirate.setBounds(piratePos,185,22,44);
 
     return null;
   }
