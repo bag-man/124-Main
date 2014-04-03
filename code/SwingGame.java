@@ -24,7 +24,7 @@ public class SwingGame extends JFrame {
 
     // Window settings
     setTitle("Pirate Hangman!");
-    setSize(500, 500);
+    setSize(340, 400);
     setLocationRelativeTo(null);
     setDefaultCloseOperation(EXIT_ON_CLOSE);        
 
@@ -55,16 +55,16 @@ public class SwingGame extends JFrame {
 
     // Add images
     try {                
-      imagePirateShip = ImageIO.read(new File("../img/ship.jpg"));
-      imagePirate = ImageIO.read(new File("../img/pirate.jpg"));
+      imagePirateShip = ImageIO.read(new File("../img/ship.png"));
+      imagePirate = ImageIO.read(new File("../img/pirate.png"));
     } catch (IOException e) {
       System.out.println("Error: " + e);
     }
 
     pirateShip = new JLabel(new ImageIcon(imagePirateShip));
     pirate = new JLabel(new ImageIcon(imagePirate));
-    pirateShip.setBounds(60,0,100,100);
-    pirate.setBounds(170,0,100,100);
+    pirateShip.setBounds(0,60,340,299);
+    pirate.setBounds(180,185,22,44);
 
     panel.add(pirateShip);
     panel.add(pirate);
@@ -100,7 +100,6 @@ public class SwingGame extends JFrame {
       m.tryThis(guess.charAt(0));
  
     label1.setText("This is the updated result: " + m.getVisible());
-    pirate.setBounds(50,50,100,100);
 
     return null;
   }
