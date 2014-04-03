@@ -78,7 +78,7 @@ public class GameModel implements GameModelInterface {
   public boolean selectNewWord() {
     String newWord = wordlist.selectRandomWord();
     if(!word.equals(newWord)) {
-      word = newWord;
+      letters = newWord.toCharArray(); //Might need to make it an ArrayList.
       return true;
     } else {
       return false;
