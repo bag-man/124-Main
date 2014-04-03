@@ -1,9 +1,12 @@
-import java.util.Arrays;
+import java.util.ArrayList;
+import java.util.Collections;
 
 public class GameModel implements GameModelInterface {
 
-  private char[] letters;
-  private boolean[] found;
+  private ArrayList<Character> letters = new ArrayList<Character>();
+  private ArrayList<Boolean> found = new ArrayList<Boolean>();
+  //private char[] letters;
+  //private boolean[] found;
   private String word;
   private String guesses;
   private int length;
@@ -13,18 +16,26 @@ public class GameModel implements GameModelInterface {
   public GameModel(Dictionary w) {
     wordlist = w;
     word = wordlist.selectRandomWord();
-    letters = word.toCharArray();
-    length = letters.length;
-    found = new boolean[length];
+    initialise(word);
+  }
+
+  public void initialise(String w) {
+    letters.clear();
+    found.clear();
+    for (char c : w.toCharArray()) {
+      letters.add(c);
+      found.add(false);
+    }
+    length = letters.size();
   }
 
   public String getVisible() {
     String result = "";
     for(int i=0; i<length; i++) {
-      if(letters[i] == ' ')
+      if(letters.get(i) == ' ')
 	result += " ";
-      else if(found[i])
-	result += letters[i];
+      else if(found.get(i))
+	result += letters.get(i);
       else
 	result += "*";
     }
@@ -50,8 +61,8 @@ public class GameModel implements GameModelInterface {
     boolean correct = false;
 
     for(i = 0; i<length; i++) {
-      if(letters[i] == letter) {
-	found[i] = true;
+      if(letters.get(i) == letter) {
+	found.get(i) = true; //Unexpected type.
         correct = true;
       }
     }
@@ -61,7 +72,7 @@ public class GameModel implements GameModelInterface {
   public boolean tryWord(String guess) {
     numGuessesLeft--;
     if(guess.equals(word)) {
-      Arrays.fill(found, true);
+      Collections.fill(found, Boolean.TRUE);
       return true;
     } else
       return false;
@@ -78,7 +89,7 @@ public class GameModel implements GameModelInterface {
   public boolean selectNewWord() {
     String newWord = wordlist.selectRandomWord();
     if(!word.equals(newWord)) {
-      letters = newWord.toCharArray(); //Might need to make it an ArrayList.
+      initialise(newWord);
       return true;
     } else {
       return false;
