@@ -19,9 +19,11 @@ public class SwingGame extends JFrame {
   private JLabel label1, pirateShip, pirate;
   private BufferedImage imagePirateShip, imagePirate;
   private int piratePos = 180;
+  private String targetWord;
 
   public SwingGame(GameModel model) {
     m = model;
+    targetWord = m.getVisible();
 
     // Window settings
     setTitle("Pirate Hangman!");
@@ -40,7 +42,7 @@ public class SwingGame extends JFrame {
     panel.add(inputArea1);
   
     // Create label
-    label1 = new JLabel("This is a pirate hangman game." + m.getVisible());
+    label1 = new JLabel("This is a pirate hangman game. " + targetWord);
     label1.setBounds(0,30,500,30);
     panel.add(label1);
 
@@ -50,6 +52,16 @@ public class SwingGame extends JFrame {
 	@Override
 	 public Void call() {
 	   return submitGuess();
+	 }
+      })
+    );
+
+    // Add  the submit button
+    panel.add(
+      AddButton(0, 375, 120, 25, "Reset",  new Callable<Void>() {
+	@Override
+	 public Void call() {
+	   return resetGame();
 	 }
       })
     );
@@ -92,6 +104,12 @@ public class SwingGame extends JFrame {
     return submitButton;
   }
 
+  public Void resetGame() {
+    pirate.setBounds(180,185,22,44);
+    targetWord = m.getVisible();
+    return null;
+  }
+
   public Void submitGuess() {
     String guess = inputArea1.getText();
  
@@ -105,7 +123,7 @@ public class SwingGame extends JFrame {
       }
     }
  
-    label1.setText("This is the updated result: " + m.getVisible());
+    label1.setText("This is the updated result: "+ targetWord);
     pirate.setBounds(piratePos,185,22,44);
 
     return null;
