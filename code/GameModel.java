@@ -5,8 +5,6 @@ public class GameModel implements GameModelInterface {
 
   private ArrayList<Character> letters = new ArrayList<Character>();
   private ArrayList<Boolean> found = new ArrayList<Boolean>();
-  //private char[] letters;
-  //private boolean[] found;
   private String word;
   private String guesses;
   private int length;
