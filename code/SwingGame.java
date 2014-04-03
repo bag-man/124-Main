@@ -16,10 +16,10 @@ public class SwingGame extends JFrame {
 
   private GameModel m;
   private JTextField inputArea1;
-  private JLabel label1, pirateShip, pirate;
+  private JLabel label1, label2, pirateShip, pirate;
   private BufferedImage imagePirateShip, imagePirate;
   private int piratePos = 180;
-  private String targetWord;
+  private String targetWord, usedLetters;
 
   public SwingGame(GameModel model) {
     m = model;
@@ -41,10 +41,15 @@ public class SwingGame extends JFrame {
     inputArea1.setBounds(0, 0, 150, 25);
     panel.add(inputArea1);
   
-    // Create label
+    // Create label for targetWord
     label1 = new JLabel(targetWord);
     label1.setBounds(0,30,500,30);
     panel.add(label1);
+
+    // Create label for usedLetters
+    label2 = new JLabel(usedLetters);
+    label2.setBounds(130,375,500,30);
+    panel.add(label2);
 
     // Add  the submit button
     panel.add(
@@ -56,7 +61,7 @@ public class SwingGame extends JFrame {
       })
     );
 
-    // Add  the submit button
+    // Add  the reset button
     panel.add(
       AddButton(0, 375, 120, 25, "Reset",  new Callable<Void>() {
 	@Override
@@ -131,6 +136,9 @@ public class SwingGame extends JFrame {
  
     targetWord = m.getVisible();
     label1.setText(targetWord);
+
+    usedLetters = m.getLetters();
+    label2.setText(usedLetters);
     pirate.setBounds(piratePos,185,22,44);
 
     inputArea1.setText("");

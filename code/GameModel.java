@@ -8,7 +8,7 @@ public class GameModel implements GameModelInterface {
   private String word;
   private String guesses;
   private int length;
-  private int numGuessesLeft = 10;
+  private int numGuessesLeft;
   private Dictionary wordlist;
 
   public GameModel(Dictionary w) {
@@ -18,6 +18,8 @@ public class GameModel implements GameModelInterface {
   }
 
   public void initialise(String w) {
+    guesses = "";
+    numGuessesLeft = 10;
     letters.clear();
     found.clear();
     for (char c : w.toCharArray()) {
@@ -54,7 +56,7 @@ public class GameModel implements GameModelInterface {
 
   public boolean tryThis(char letter){
     numGuessesLeft--;
-    guesses += letter;
+    guesses += letter + " ";
     int i;
     boolean correct = false;
 
