@@ -62,7 +62,7 @@ public class GameModel implements GameModelInterface {
 
     for(i = 0; i<length; i++) {
       if(letters.get(i) == letter) {
-	found.get(i) = true; //Unexpected type (The i), expected variable, got value.
+	found.set(i, true);
         correct = true;
       }
     }
