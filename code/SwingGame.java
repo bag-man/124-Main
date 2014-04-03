@@ -16,14 +16,15 @@ public class SwingGame extends JFrame {
 
   private GameModel m;
   private JTextField inputArea1;
-  private JLabel label1, label2, pirateShip, pirate;
+  private JLabel label1, label2, label3, pirateShip, pirate;
   private BufferedImage imagePirateShip, imagePirate;
-  private int piratePos = 180;
+  private int piratePos = 180, remainingGos;
   private String targetWord, usedLetters;
 
   public SwingGame(GameModel model) {
     m = model;
     targetWord = m.getVisible();
+    remainingGos = m.guessLeft();
 
     // Window settings
     setTitle("Pirate Hangman!");
@@ -43,13 +44,18 @@ public class SwingGame extends JFrame {
   
     // Create label for targetWord
     label1 = new JLabel(targetWord);
-    label1.setBounds(0,30,500,30);
+    label1.setBounds(0,30,200,30);
     panel.add(label1);
 
     // Create label for usedLetters
     label2 = new JLabel(usedLetters);
-    label2.setBounds(130,375,500,30);
+    label2.setBounds(130,375,100,30);
     panel.add(label2);
+
+    // Create label for remainingGos
+    label3 = new JLabel(Integer.toString(remainingGos));
+    label3.setBounds(200,375,100,30);
+    panel.add(label3);
 
     // Add  the submit button
     panel.add(
@@ -139,6 +145,10 @@ public class SwingGame extends JFrame {
 
     usedLetters = m.getLetters();
     label2.setText(usedLetters);
+
+    remainingGos = m.guessLeft();
+    label3.setText(Integer.toString(remainingGos));
+
     pirate.setBounds(piratePos,185,22,44);
 
     inputArea1.setText("");
