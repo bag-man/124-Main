@@ -105,6 +105,7 @@ public class SwingGame extends JFrame {
   }
 
   public Void resetGame() {
+    inputArea1.setText("");
     while(!m.selectNewWord()){
       m.selectNewWord();
     }
@@ -132,6 +133,7 @@ public class SwingGame extends JFrame {
     label1.setText(targetWord);
     pirate.setBounds(piratePos,185,22,44);
 
+    inputArea1.setText("");
     return null;
   }
 }
