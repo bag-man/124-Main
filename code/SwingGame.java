@@ -42,7 +42,7 @@ public class SwingGame extends JFrame {
     panel.add(inputArea1);
   
     // Create label
-    label1 = new JLabel("This is a pirate hangman game. " + targetWord);
+    label1 = new JLabel(targetWord);
     label1.setBounds(0,30,500,30);
     panel.add(label1);
 
@@ -106,7 +106,9 @@ public class SwingGame extends JFrame {
 
   public Void resetGame() {
     pirate.setBounds(180,185,22,44);
+    piratePos = 180;
     targetWord = m.getVisible();
+    label1.setText(targetWord);
     return null;
   }
 
@@ -123,7 +125,8 @@ public class SwingGame extends JFrame {
       }
     }
  
-    label1.setText("This is the updated result: "+ targetWord);
+    targetWord = m.getVisible();
+    label1.setText(targetWord);
     pirate.setBounds(piratePos,185,22,44);
 
     return null;
