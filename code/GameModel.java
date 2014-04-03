@@ -55,8 +55,6 @@ public class GameModel implements GameModelInterface {
   }
 
   public boolean tryThis(char letter){
-    numGuessesLeft--;
-    guesses += letter + " ";
     int i;
     boolean correct = false;
 
@@ -64,18 +62,23 @@ public class GameModel implements GameModelInterface {
       if(letters.get(i) == letter) {
 	found.set(i, true);
         correct = true;
-      }
+      } 
+    }
+    if(!correct) {
+      numGuessesLeft--;
+      guesses += letter + " ";
     }
     return correct;
   };
 
   public boolean tryWord(String guess) {
-    numGuessesLeft--;
     if(guess.equals(word)) {
       Collections.fill(found, Boolean.TRUE);
       return true;
-    } else
+    } else {
+      numGuessesLeft--;
       return false;
+    }
   };
 
   public boolean won() {
