@@ -40,12 +40,12 @@ public class SwingGame extends JFrame {
 
     // Create input field
     inputArea1 = new JTextField();
-    inputArea1.setBounds(0, 0, 150, 25);
+    inputArea1.setBounds(0, 300, 220, 25);
     panel.add(inputArea1);
   
     // Create label for targetWord
     label1 = new JLabel(targetWord);
-    label1.setBounds(0,30,200,30);
+    label1.setBounds(0,324,200,30);
     panel.add(label1);
 
     // Create label for usedLetters
@@ -60,7 +60,7 @@ public class SwingGame extends JFrame {
 
     // Add  the submit button
     panel.add(
-      AddButton(150, 0, 120, 25, "Submit",  new Callable<Void>() {
+      AddButton(220, 299, 120, 25, "Submit",  new Callable<Void>() {
 	@Override
 	 public Void call() {
 	   return submitGuess();
@@ -70,7 +70,7 @@ public class SwingGame extends JFrame {
 
     // Add  the reset button
     panel.add(
-      AddButton(0, 375, 120, 25, "Reset",  new Callable<Void>() {
+      AddButton(220, 324, 120, 25, "Reset",  new Callable<Void>() {
 	@Override
 	 public Void call() {
 	   return resetGame();
@@ -88,8 +88,8 @@ public class SwingGame extends JFrame {
 
     pirateShip = new JLabel(new ImageIcon(imagePirateShip));
     pirate = new JLabel(new ImageIcon(imagePirate));
-    pirateShip.setBounds(0,60,340,299);
-    pirate.setBounds(180,185,22,44);
+    pirateShip.setBounds(0,0,340,299);
+    pirate.setBounds(180,125,22,44);
 
     panel.add(pirateShip);
     panel.add(pirate);
@@ -116,19 +116,21 @@ public class SwingGame extends JFrame {
     return submitButton;
   }
 
-  public Void resetGame() {
+  private Void resetGame() {
     inputArea1.setText("");
     while(!m.selectNewWord()){
       m.selectNewWord();
     }
-    pirate.setBounds(180,185,22,44);
+    pirate.setBounds(180,125,22,44);
     piratePos = 180;
-    targetWord = m.getVisible();
-    label1.setText(targetWord);
+    
+    updateText();
+
     return null;
   }
 
-  public Void submitGuess() {
+
+  private Void submitGuess() {
     String guess = inputArea1.getText();
  
     if(guess.length() >1) {
@@ -141,6 +143,14 @@ public class SwingGame extends JFrame {
       }
     }
  
+    updateText();
+
+    pirate.setBounds(piratePos,125,22,44);
+    inputArea1.setText("");
+    return null;
+  }
+
+  private void updateText() {
     targetWord = m.getVisible();
     label1.setText(targetWord);
 
@@ -149,10 +159,5 @@ public class SwingGame extends JFrame {
 
     remainingGos = m.guessLeft();
     label3.setText(Integer.toString(remainingGos));
-
-    pirate.setBounds(piratePos,185,22,44);
-
-    inputArea1.setText("");
-    return null;
   }
 }
