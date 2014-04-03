@@ -31,6 +31,7 @@ public class SwingGame extends JFrame {
     setSize(340, 400);
     setLocationRelativeTo(null);
     setDefaultCloseOperation(EXIT_ON_CLOSE);        
+    setResizable(false);
 
     // Create panel
     JPanel panel = new JPanel();
