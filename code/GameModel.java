@@ -24,7 +24,10 @@ public class GameModel implements GameModelInterface {
     found.clear();
     for (char c : w.toCharArray()) {
       letters.add(c);
-      found.add(false);
+      if(c == ' ')
+	found.add(true);
+      else 
+	found.add(false);
     }
     length = letters.size();
   }
