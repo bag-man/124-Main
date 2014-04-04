@@ -78,7 +78,6 @@ public class GameModel implements GameModelInterface {
   public boolean tryWord(String guess) {
     if(guess.equals(word)) {
       Collections.fill(found, Boolean.TRUE);
-      System.out.println("here " + found.get(1));
       return true;
     } else {
       numGuessesLeft--;

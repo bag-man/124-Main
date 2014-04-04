@@ -8,6 +8,7 @@ import javax.swing.JFrame;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 import javax.swing.ImageIcon;
 import javax.imageio.ImageIO;
@@ -58,9 +59,13 @@ public class SwingGame extends JFrame {
     inputArea1.setText("");
  
     if(m.won())
-      System.out.println("You have won!");
+      popUp();
 
     return null;
+  }
+
+  private void popUp() {
+    //Popup with would you like to restart or quit? And two buttons for each of the afformentioned options.
   }
 
   private JButton AddButton(int x, int y, int w, int h, String name, Callable<Void> function) {
