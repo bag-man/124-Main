@@ -116,12 +116,12 @@ public class SwingGame extends JFrame {
 
     // Create label for usedLetters
     label2 = new JLabel(usedLetters);
-    label2.setBounds(130,375,100,30);
+    label2.setBounds(0,375,200,30);
     panel.add(label2);
 
     // Create label for remainingGos
     label3 = new JLabel(Integer.toString(remainingGos));
-    label3.setBounds(200,375,100,30);
+    label3.setBounds(320,375,100,30);
     panel.add(label3);
 
 
