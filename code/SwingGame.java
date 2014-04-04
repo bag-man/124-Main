@@ -25,7 +25,73 @@ public class SwingGame extends JFrame {
     m = model;
     targetWord = m.getVisible();
     remainingGos = m.guessLeft();
+    createGui();
+  }
 
+  private Void resetGame() {
+    inputArea1.setText("");
+    while(!m.selectNewWord()){
+      m.selectNewWord();
+    }
+    pirate.setBounds(180,125,22,44);
+    piratePos = 180;
+    updateText();
+
+    return null;
+  }
+
+  private Void submitGuess() {
+    String guess = inputArea1.getText();
+ 
+    if(guess.length() >1) {
+      if(!m.tryWord(guess)) {
+	piratePos += -5;
+      }
+    } else if (!guess.isEmpty()) {
+      if(!m.tryThis(guess.charAt(0))) {
+	piratePos += -5;
+      }
+    }
+ 
+    updateText();
+
+    pirate.setBounds(piratePos,125,22,44);
+    inputArea1.setText("");
+    return null;
+  }
+
+  private JButton AddButton(int x, int y, int w, int h, String name, Callable<Void> function) {
+    final Callable<Void> runThis = function;
+    JButton button = new JButton(name);
+    button.setBounds(x, y, w, h); 
+
+    button.addActionListener(new ActionListener() {
+      @Override
+      public void actionPerformed(ActionEvent event) {
+        try {
+	  runThis.call();
+        } catch (Exception e) {
+          System.out.println("Error: " + e);
+        }
+      }
+    });
+    
+    return button;
+  }
+
+  private void updateText() {
+    targetWord = m.getVisible();
+    label1.setText(targetWord);
+
+    usedLetters = m.getLetters();
+    label2.setText(usedLetters);
+
+    remainingGos = m.guessLeft();
+    label3.setText(Integer.toString(remainingGos));
+    inputArea1.requestFocusInWindow();
+  }
+
+  private void createGui() {
     // Window settings
     setTitle("Pirate Hangman!");
     setSize(340, 400);
@@ -98,71 +164,5 @@ public class SwingGame extends JFrame {
     panel.add(pirateShip);
     panel.add(pirate);
     panel.setComponentZOrder(pirate, 0); // Draw last
-
-  }
-
-  private JButton AddButton(int x, int y, int w, int h, String name, Callable<Void> function) {
-    final Callable<Void> runThis = function;
-    JButton button = new JButton(name);
-    button.setBounds(x, y, w, h); 
-
-    button.addActionListener(new ActionListener() {
-      @Override
-      public void actionPerformed(ActionEvent event) {
-        try {
-	  runThis.call();
-        } catch (Exception e) {
-          System.out.println("Error: " + e);
-        }
-      }
-    });
-    
-    return button;
-  }
-
-  private Void resetGame() {
-    inputArea1.setText("");
-    while(!m.selectNewWord()){
-      m.selectNewWord();
-    }
-    pirate.setBounds(180,125,22,44);
-    piratePos = 180;
-    
-    updateText();
-
-    return null;
-  }
-
-
-  private Void submitGuess() {
-    String guess = inputArea1.getText();
- 
-    if(guess.length() >1) {
-      if(!m.tryWord(guess)) {
-	piratePos += -5;
-      }
-    } else if (!guess.isEmpty()) {
-      if(!m.tryThis(guess.charAt(0))) {
-	piratePos += -5;
-      }
-    }
- 
-    updateText();
-
-    pirate.setBounds(piratePos,125,22,44);
-    inputArea1.setText("");
-    return null;
-  }
-
-  private void updateText() {
-    targetWord = m.getVisible();
-    label1.setText(targetWord);
-
-    usedLetters = m.getLetters();
-    label2.setText(usedLetters);
-
-    remainingGos = m.guessLeft();
-    label3.setText(Integer.toString(remainingGos));
-    inputArea1.requestFocusInWindow();
   }
 }
