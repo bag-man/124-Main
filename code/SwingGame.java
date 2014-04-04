@@ -58,25 +58,29 @@ public class SwingGame extends JFrame {
     label3.setBounds(200,375,100,30);
     panel.add(label3);
 
+
+    // Create submit button
+    JButton submitButton = AddButton(220, 299, 120, 25, "Submit",  new Callable<Void>() {
+      @Override
+      public Void call() {
+        return submitGuess();
+      }
+    });
+
     // Add  the submit button
-    panel.add(
-      AddButton(220, 299, 120, 25, "Submit",  new Callable<Void>() {
-	@Override
-	 public Void call() {
-	   return submitGuess();
-	 }
-      })
-    );
+    panel.add(submitButton);
+    getRootPane().setDefaultButton(submitButton);
+
+    // Create the reset button
+    JButton resetButton = AddButton(220, 324, 120, 25, "Reset",  new Callable<Void>() {
+      @Override
+      public Void call() {
+      	return resetGame();
+      }
+    });
 
     // Add  the reset button
-    panel.add(
-      AddButton(220, 324, 120, 25, "Reset",  new Callable<Void>() {
-	@Override
-	 public Void call() {
-	   return resetGame();
-	 }
-      })
-    );
+    panel.add(resetButton);
 
     // Add images
     try {                
@@ -99,10 +103,10 @@ public class SwingGame extends JFrame {
 
   private JButton AddButton(int x, int y, int w, int h, String name, Callable<Void> function) {
     final Callable<Void> runThis = function;
-    JButton submitButton = new JButton(name);
-    submitButton.setBounds(x, y, w, h); 
+    JButton button = new JButton(name);
+    button.setBounds(x, y, w, h); 
 
-    submitButton.addActionListener(new ActionListener() {
+    button.addActionListener(new ActionListener() {
       @Override
       public void actionPerformed(ActionEvent event) {
         try {
@@ -113,7 +117,7 @@ public class SwingGame extends JFrame {
       }
     });
     
-    return submitButton;
+    return button;
   }
 
   private Void resetGame() {
@@ -159,5 +163,6 @@ public class SwingGame extends JFrame {
 
     remainingGos = m.guessLeft();
     label3.setText(Integer.toString(remainingGos));
+    inputArea1.requestFocusInWindow();
   }
 }
