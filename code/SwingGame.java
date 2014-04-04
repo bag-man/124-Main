@@ -44,7 +44,6 @@ public class SwingGame extends JFrame {
     String guess = inputArea1.getText();
  
     if(guess.length() >1) {
-      System.out.println("Trying: " + guess);
       if(!m.tryWord(guess)) {
 	piratePos += -14;
       }
