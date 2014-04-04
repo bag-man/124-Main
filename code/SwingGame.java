@@ -45,18 +45,21 @@ public class SwingGame extends JFrame {
  
     if(guess.length() >1) {
       if(!m.tryWord(guess)) {
-	piratePos += -5;
+	piratePos += -14;
       }
     } else if (!guess.isEmpty()) {
       if(!m.tryThis(guess.charAt(0))) {
-	piratePos += -5;
+	piratePos += -14;
       }
     }
  
     updateText();
-
     pirate.setBounds(piratePos,125,22,44);
     inputArea1.setText("");
+ 
+    if(m.won())
+      System.out.println("You have won!");
+
     return null;
   }
 
