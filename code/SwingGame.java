@@ -1,6 +1,7 @@
 import java.io.File;
 import java.io.IOException;
 import java.util.concurrent.Callable;
+import java.awt.Point;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.image.BufferedImage;
@@ -12,6 +13,7 @@ import javax.swing.JDialog;
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 import javax.swing.ImageIcon;
+import javax.swing.Timer;
 import javax.imageio.ImageIO;
 
 public class SwingGame extends JFrame {
@@ -33,13 +35,16 @@ public class SwingGame extends JFrame {
 
   private Void resetGame() {
     inputArea1.setText("");
+
     while(!m.selectNewWord()){
       m.selectNewWord();
     }
+
     pirate.setBounds(180,125,22,44);
     piratePos = 180;
     updateText();
-    popup.setVisible(false);
+    if(popup != null)
+      popup.dispose();
 
     return null;
   }
@@ -63,9 +68,18 @@ public class SwingGame extends JFrame {
  
     if(m.won())
       popUp("Congratulations, you have won!");
+    else if(m.guessLeft() == 0)
+      loseGame();
 
     return null;
   }
+
+  private void loseGame() {
+    int pos = 125;
+    pirate.setBounds(piratePos,pos+50,22,44);
+    popUp("Sorry you lost! Better luck next time!");
+  }
+
 
   private Void exit() {
     System.exit(0);
@@ -99,7 +113,9 @@ public class SwingGame extends JFrame {
     popup.setSize(300,70);
     popup.setResizable(false);
     popup.setUndecorated(true);
-    popup.setLocationRelativeTo(null);
+    popup.setLocationRelativeTo(this);
+    Point p = getLocationOnScreen();
+    popup.setLocation(p.x + 20, p.y + 220);
     popup.add(dialogPanel);
     popup.setVisible(true);
   }

@@ -9,7 +9,7 @@ public class TestGameView {
   public static void main(String[] args) {
 
     try {
-      wordlist = new Dictionary("../piratewords.txt");
+      wordlist = new Dictionary("../word.txt");
     } catch (IOException e) {
       System.out.println("Error: " + e);
     }
