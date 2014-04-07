@@ -86,10 +86,12 @@ public class SwingGame extends JFrame {
     });
 
     JDialog popup = new JDialog();
+    JPanel dialogPanel = new JPanel();
     popup.setSize(300,200);
     popup.setLocationRelativeTo(null);
-    popup.add(retryButton);
-    popup.add(quitButton);
+    dialogPanel.add(retryButton);
+    dialogPanel.add(quitButton);
+    popup.add(dialogPanel);
     popup.setVisible(true);
   }
 
