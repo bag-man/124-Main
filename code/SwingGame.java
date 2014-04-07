@@ -8,6 +8,7 @@ import javax.swing.JFrame;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.JDialog;
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 import javax.swing.ImageIcon;
@@ -16,6 +17,7 @@ import javax.imageio.ImageIO;
 public class SwingGame extends JFrame {
 
   private GameModel m;
+  private JButton resetButton, submitButton, quitButton;
   private JTextField inputArea1;
   private JLabel label1, label2, label3, pirateShip, pirate;
   private BufferedImage imagePirateShip, imagePirate;
@@ -65,7 +67,11 @@ public class SwingGame extends JFrame {
   }
 
   private void popUp() {
-    //Popup with would you like to restart or quit? And two buttons for each of the afformentioned options.
+    JDialog popup = new JDialog();
+    popup.setSize(500,500);
+    popup.setLocationRelativeTo(null);
+    popup.add(resetButton);
+    popup.setVisible(true);
   }
 
   private JButton AddButton(int x, int y, int w, int h, String name, Callable<Void> function) {
@@ -134,7 +140,7 @@ public class SwingGame extends JFrame {
 
 
     // Create submit button
-    JButton submitButton = AddButton(220, 299, 120, 25, "Submit",  new Callable<Void>() {
+    submitButton = AddButton(220, 299, 120, 25, "Submit",  new Callable<Void>() {
       @Override
       public Void call() {
         return submitGuess();
@@ -146,7 +152,7 @@ public class SwingGame extends JFrame {
     getRootPane().setDefaultButton(submitButton);
 
     // Create the reset button
-    JButton resetButton = AddButton(220, 324, 120, 25, "Reset",  new Callable<Void>() {
+    resetButton = AddButton(220, 324, 120, 25, "Reset",  new Callable<Void>() {
       @Override
       public Void call() {
       	return resetGame();
