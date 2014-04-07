@@ -19,6 +19,7 @@ public class SwingGame extends JFrame {
   private GameModel m;
   private JTextField inputArea1;
   private JLabel label1, label2, label3, pirateShip, pirate;
+  private JDialog popup;
   private BufferedImage imagePirateShip, imagePirate;
   private int piratePos = 180, remainingGos;
   private String targetWord, usedLetters;
@@ -38,6 +39,7 @@ public class SwingGame extends JFrame {
     pirate.setBounds(180,125,22,44);
     piratePos = 180;
     updateText();
+    popup.setVisible(false);
 
     return null;
   }
@@ -60,7 +62,7 @@ public class SwingGame extends JFrame {
     inputArea1.setText("");
  
     if(m.won())
-      popUp();
+      popUp("Congratulations, you have won!");
 
     return null;
   }
@@ -70,7 +72,7 @@ public class SwingGame extends JFrame {
     return null;
   }
 
-  private void popUp() {
+  private void popUp(String message) {
     JButton quitButton = AddButton(0, 0, 120, 25, "Quit",  new Callable<Void>() {
       @Override
       public Void call() {
@@ -85,12 +87,19 @@ public class SwingGame extends JFrame {
       }
     });
 
-    JDialog popup = new JDialog();
+    JLabel infoMessage = new JLabel(message);
+    infoMessage.setBounds(0, 0, 100, 30);
+
     JPanel dialogPanel = new JPanel();
-    popup.setSize(300,200);
-    popup.setLocationRelativeTo(null);
+    dialogPanel.add(infoMessage);
     dialogPanel.add(retryButton);
     dialogPanel.add(quitButton);
+
+    popup = new JDialog();
+    popup.setSize(300,70);
+    popup.setResizable(false);
+    popup.setUndecorated(true);
+    popup.setLocationRelativeTo(null);
     popup.add(dialogPanel);
     popup.setVisible(true);
   }
