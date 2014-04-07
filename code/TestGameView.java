@@ -11,7 +11,7 @@ public class TestGameView {
     try {
       wordlist = new Dictionary("../piratewords.txt");
     } catch (IOException e) {
-      System.out.println("Error " + e);
+      System.out.println("Error: " + e);
     }
 
     model = new GameModel(wordlist);
