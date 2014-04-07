@@ -17,7 +17,6 @@ import javax.imageio.ImageIO;
 public class SwingGame extends JFrame {
 
   private GameModel m;
-  private JButton resetButton, submitButton, quitButton;
   private JTextField inputArea1;
   private JLabel label1, label2, label3, pirateShip, pirate;
   private BufferedImage imagePirateShip, imagePirate;
@@ -66,11 +65,31 @@ public class SwingGame extends JFrame {
     return null;
   }
 
+  private Void exit() {
+    System.exit(0);
+    return null;
+  }
+
   private void popUp() {
+    JButton quitButton = AddButton(0, 0, 120, 25, "Quit",  new Callable<Void>() {
+      @Override
+      public Void call() {
+        return exit();
+      }
+    });
+
+    JButton retryButton = AddButton(0, 0, 120, 25, "Try Again?",  new Callable<Void>() {
+      @Override
+      public Void call() {
+        return resetGame();
+      }
+    });
+
     JDialog popup = new JDialog();
-    popup.setSize(500,500);
+    popup.setSize(300,200);
     popup.setLocationRelativeTo(null);
-    popup.add(resetButton);
+    popup.add(retryButton);
+    popup.add(quitButton);
     popup.setVisible(true);
   }
 
@@ -140,7 +159,7 @@ public class SwingGame extends JFrame {
 
 
     // Create submit button
-    submitButton = AddButton(220, 299, 120, 25, "Submit",  new Callable<Void>() {
+    JButton submitButton = AddButton(220, 299, 120, 25, "Submit",  new Callable<Void>() {
       @Override
       public Void call() {
         return submitGuess();
@@ -152,7 +171,7 @@ public class SwingGame extends JFrame {
     getRootPane().setDefaultButton(submitButton);
 
     // Create the reset button
-    resetButton = AddButton(220, 324, 120, 25, "Reset",  new Callable<Void>() {
+    JButton resetButton = AddButton(220, 324, 120, 25, "Reset",  new Callable<Void>() {
       @Override
       public Void call() {
       	return resetGame();
