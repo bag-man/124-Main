@@ -27,29 +27,16 @@ public class SwingGame extends JFrame {
   private String targetWord, usedLetters;
 
   public SwingGame(GameModel model) {
+
     m = model;
     targetWord = m.getVisible();
     remainingGos = m.guessLeft();
     createGui();
-  }
 
-  private Void resetGame() {
-    inputArea1.setText("");
-
-    while(!m.selectNewWord()){
-      m.selectNewWord();
-    }
-
-    pirate.setBounds(180,125,22,44);
-    piratePos = 180;
-    updateText();
-    if(popup != null)
-      popup.dispose();
-
-    return null;
   }
 
   private Void submitGuess() {
+
     String guess = inputArea1.getText();
  
     if(guess.length() >1) {
@@ -72,21 +59,81 @@ public class SwingGame extends JFrame {
       loseGame();
 
     return null;
+
+  }
+
+  private Void resetGame() {
+
+    inputArea1.setText("");
+
+    while(!m.selectNewWord()){
+      m.selectNewWord();
+    }
+
+    pirate.setBounds(180,125,22,44);
+    piratePos = 180;
+    updateText();
+    if(popup != null)
+      popup.dispose();
+
+    return null;
+
   }
 
   private void loseGame() {
+
     int pos = 125;
     pirate.setBounds(piratePos,pos+50,22,44);
     popUp("Sorry you lost! Better luck next time!");
+
   }
 
 
   private Void exit() {
+
     System.exit(0);
     return null;
+
+  }
+
+
+  private JButton AddButton(int x, int y, int w, int h, String name, Callable<Void> function) {
+
+    final Callable<Void> runThis = function;
+    JButton button = new JButton(name);
+    button.setBounds(x, y, w, h); 
+
+    button.addActionListener(new ActionListener() {
+      @Override
+      public void actionPerformed(ActionEvent event) {
+        try {
+	  runThis.call();
+        } catch (Exception e) {
+          System.out.println("Error: " + e);
+        }
+      }
+    });
+    
+    return button;
+
+  }
+
+  private void updateText() {
+
+    targetWord = m.getVisible();
+    label1.setText(targetWord);
+
+    usedLetters = m.getLetters();
+    label2.setText(usedLetters);
+
+    remainingGos = m.guessLeft();
+    label3.setText(Integer.toString(remainingGos));
+    inputArea1.requestFocusInWindow();
+
   }
 
   private void popUp(String message) {
+
     JButton quitButton = AddButton(0, 0, 120, 25, "Quit",  new Callable<Void>() {
       @Override
       public Void call() {
@@ -118,40 +165,11 @@ public class SwingGame extends JFrame {
     popup.setLocation(p.x + 20, p.y + 220);
     popup.add(dialogPanel);
     popup.setVisible(true);
-  }
 
-  private JButton AddButton(int x, int y, int w, int h, String name, Callable<Void> function) {
-    final Callable<Void> runThis = function;
-    JButton button = new JButton(name);
-    button.setBounds(x, y, w, h); 
-
-    button.addActionListener(new ActionListener() {
-      @Override
-      public void actionPerformed(ActionEvent event) {
-        try {
-	  runThis.call();
-        } catch (Exception e) {
-          System.out.println("Error: " + e);
-        }
-      }
-    });
-    
-    return button;
-  }
-
-  private void updateText() {
-    targetWord = m.getVisible();
-    label1.setText(targetWord);
-
-    usedLetters = m.getLetters();
-    label2.setText(usedLetters);
-
-    remainingGos = m.guessLeft();
-    label3.setText(Integer.toString(remainingGos));
-    inputArea1.requestFocusInWindow();
   }
 
   private void createGui() {
+
     // Window settings
     setTitle("Pirate Hangman!");
     setSize(340, 400);
@@ -224,5 +242,6 @@ public class SwingGame extends JFrame {
     panel.add(pirateShip);
     panel.add(pirate);
     panel.setComponentZOrder(pirate, 0); // Draw last
+
   }
 }
