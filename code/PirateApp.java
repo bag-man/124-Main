@@ -9,7 +9,7 @@ public class PirateApp {
   public static void main(String[] args) {
 
     try {
-      wordlist = new Dictionary("../word.txt");
+      wordlist = new Dictionary("../piratewords.txt");
     } catch (IOException e) {
       System.out.println("Error: " + e);
     }
