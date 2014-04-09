@@ -19,7 +19,7 @@ public class TestGameModel {
   }
 
   @Test
-  public void testVisibleWord() { //Is it okay to make this static?
+  public void testVisibleWord() { //Is it okay to make this static? A: No! I shall make some test classes. Yippee. 
 
     System.out.println("Testing if the word has loaded correctly.") ;
     GameModel model = new GameModel(wordlist);
