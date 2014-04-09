@@ -14,16 +14,17 @@ public class TestGameModel {
       System.out.println("Error: " + e);
     }
 
+    testVisibleWord();
+
   }
 
   @Test
-  public void testVisibleWord() {
+  public void testVisibleWord() { //Is it okay to make this static?
 
     System.out.println("Testing if the word has loaded correctly.") ;
     GameModel model = new GameModel(wordlist);
     assertTrue(model.getVisible().equals("****"));
 
   }
-
 
 }
