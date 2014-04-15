@@ -1,5 +1,5 @@
+import static org.junit.Assert.assertEquals;
 import org.junit.Test;
-import static org.junit.Assert.assertTrue;
 
 public class AllTests {
 
@@ -14,8 +14,7 @@ public class AllTests {
   @Test
   public void hiddenWord() { 
 
-    System.out.println("Testing if the word has loaded correctly.");
-    assertTrue(model.getVisible().equals("****"));
+    assertEquals("Word has not loaded correctly.", model.getHidden(), "ahoy");
 
   }
 
