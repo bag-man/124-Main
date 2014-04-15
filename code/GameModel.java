@@ -68,12 +68,14 @@ public class GameModel implements GameModelInterface {
         correct = true;
       } 
     }
+
     if(!correct && guesses.indexOf(letter) == -1 ){
       numGuessesLeft--;
       guesses += letter + " ";
     } else {
       correct = true;
     }
+
     return correct;
   };
 
