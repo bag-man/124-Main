@@ -3,6 +3,9 @@ import org.junit.Test;
 import org.junit.Before;
 import java.io.IOException;
 
+
+/* To run these tests, at the command line run; "java org.junit.runner.JUnitCore AllTests", and ensure that junit.jar is in your classpath. */
+
 public class AllTests {
 
   private GameModel model;
