@@ -14,9 +14,8 @@ public class TestGameModel {
 
     AllTests test = new AllTests(wordlist);
 
-    test.visibleWord();
+    test.hiddenWord();
 
   }
-
 
 }
