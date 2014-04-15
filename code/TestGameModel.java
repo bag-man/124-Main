@@ -1,6 +1,4 @@
 import java.io.IOException;
-import org.junit.Test;
-import static org.junit.Assert.assertTrue;
 
 public class TestGameModel {
 
@@ -14,17 +12,11 @@ public class TestGameModel {
       System.out.println("Error: " + e);
     }
 
-    testVisibleWord();
+    AllTests test = new AllTests(wordlist);
+
+    test.visibleWord();
 
   }
 
-  @Test
-  public void testVisibleWord() { //Is it okay to make this static? A: No! I shall make some test classes. Yippee. 
-
-    System.out.println("Testing if the word has loaded correctly.") ;
-    GameModel model = new GameModel(wordlist);
-    assertTrue(model.getVisible().equals("****"));
-
-  }
 
 }
