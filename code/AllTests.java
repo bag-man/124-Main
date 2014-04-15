@@ -1,5 +1,6 @@
 import static org.junit.Assert.assertEquals;
 import org.junit.Test;
+import org.junit.Before;
 import java.io.IOException;
 
 public class AllTests {
@@ -7,7 +8,8 @@ public class AllTests {
   private GameModel model;
   private Dictionary wordlist;
 
-  public AllTests() {
+  @Before
+  public void init() {
 
     try {
       wordlist = new Dictionary("../word.txt"); //This file contains a single word, "ahoy".
