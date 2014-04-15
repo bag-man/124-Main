@@ -1,13 +1,21 @@
 import static org.junit.Assert.assertEquals;
 import org.junit.Test;
+import java.io.IOException;
 
 public class AllTests {
 
   private GameModel model;
+  private Dictionary wordlist;
 
-  public AllTests(Dictionary w) {
+  public AllTests() {
 
-    model = new GameModel(w);
+    try {
+      wordlist = new Dictionary("../word.txt"); //This file contains a single word, "ahoy".
+    } catch (IOException e) {
+      System.out.println("Error: " + e);
+    }
+
+    model = new GameModel(wordlist);
 
   }
 
