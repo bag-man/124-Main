@@ -14,6 +14,7 @@ import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 import javax.swing.ImageIcon;
 import javax.swing.Timer;
+import javax.swing.JSeparator;
 import javax.imageio.ImageIO;
 
 public class SwingGame extends JFrame {
@@ -204,13 +205,17 @@ public class SwingGame extends JFrame {
 
     // Create label for Lives left 
     JLabel label4 = new JLabel("Lives Left");
-    label4.setBounds(270,345,100,30);
+    label4.setBounds(270,355,100,30);
     panel.add(label4);
 
     // Create label for Wrong Letters
     JLabel label5 = new JLabel("Wrong Letters");
-    label5.setBounds(0,345,200,30);
+    label5.setBounds(0,355,200,30);
     panel.add(label5);
+
+    JSeparator line = new JSeparator();
+    line.setBounds(0,360,340,2);
+    panel.add(line);
 
 
     // Create submit button
