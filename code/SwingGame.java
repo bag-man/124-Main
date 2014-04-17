@@ -202,6 +202,16 @@ public class SwingGame extends JFrame {
     label3.setBounds(320,375,100,30);
     panel.add(label3);
 
+    // Create label for Lives left 
+    JLabel label4 = new JLabel("Lives Left");
+    label4.setBounds(270,345,100,30);
+    panel.add(label4);
+
+    // Create label for Wrong Letters
+    JLabel label5 = new JLabel("Wrong Letters");
+    label5.setBounds(0,345,200,30);
+    panel.add(label5);
+
 
     // Create submit button
     JButton submitButton = AddButton(220, 299, 120, 25, "Submit",  new Callable<Void>() {
