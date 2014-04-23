@@ -42,7 +42,7 @@ public class SwingGame extends JFrame {
  
     if(guess.length() >1) {
       if(!m.tryWord(guess)) {
-	piratePos += -14;
+	piratePos += -70;
       }
     } else if (!guess.isEmpty()) {
       if(!m.tryThis(guess.charAt(0))) {

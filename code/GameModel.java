@@ -84,7 +84,7 @@ public class GameModel implements GameModelInterface {
       Collections.fill(found, Boolean.TRUE);
       return true;
     } else {
-      numGuessesLeft--;
+      numGuessesLeft += -5;
       return false;
     }
   };
