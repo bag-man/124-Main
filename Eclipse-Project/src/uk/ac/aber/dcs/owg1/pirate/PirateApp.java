@@ -11,7 +11,7 @@ public class PirateApp {
   public static void main(String[] args) {
 
     try {
-      wordlist = new Dictionary("src/uk/ac/aber/dcs/owg1/pirate/piratewords.txt");
+      wordlist = new Dictionary("../piratewords.txt");
     } catch (IOException e) {
       System.out.println("Error: " + e);
     }
