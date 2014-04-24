@@ -1,4 +1,5 @@
 package uk.ac.aber.dcs.owg1.pirate;
+
 import java.io.File;
 import java.io.IOException;
 import java.util.concurrent.Callable;
@@ -43,7 +44,7 @@ public class SwingGame extends JFrame {
  
     if(guess.length() >1) {
       if(!m.tryWord(guess)) {
-	piratePos += -14;
+	piratePos += -70;
       }
     } else if (!guess.isEmpty()) {
       if(!m.tryThis(guess.charAt(0))) {
@@ -244,8 +245,8 @@ public class SwingGame extends JFrame {
 
     // Add images
     try {                
-      imagePirateShip = ImageIO.read(new File("src/uk/ac/aber/dcs/owg1/pirate/img/ship.png"));
-      imagePirate = ImageIO.read(new File("src/uk/ac/aber/dcs/owg1/pirate/img/pirate.png"));
+      imagePirateShip = ImageIO.read(new File("../img/ship.png"));
+      imagePirate = ImageIO.read(new File("../img/pirate.png"));
     } catch (IOException e) {
       System.out.println("Error: " + e);
     }

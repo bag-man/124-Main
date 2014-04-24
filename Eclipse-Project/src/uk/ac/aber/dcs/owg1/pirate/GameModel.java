@@ -1,4 +1,5 @@
 package uk.ac.aber.dcs.owg1.pirate;
+
 import java.util.ArrayList;
 import java.util.Collections;
 
@@ -85,7 +86,7 @@ public class GameModel implements GameModelInterface {
       Collections.fill(found, Boolean.TRUE);
       return true;
     } else {
-      numGuessesLeft--;
+      numGuessesLeft += -5;
       return false;
     }
   };
