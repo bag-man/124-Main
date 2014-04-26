@@ -172,7 +172,7 @@ public class SwingGame extends JFrame {
 
     // Window settings
     setTitle("Pirate Hangman!");
-    setSize(340, 400);
+    setSize(340, 430);
     setLocationRelativeTo(null);
     setDefaultCloseOperation(EXIT_ON_CLOSE);        
     setResizable(false);
