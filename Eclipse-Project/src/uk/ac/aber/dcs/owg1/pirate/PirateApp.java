@@ -18,12 +18,9 @@ public class PirateApp {
 
     model = new GameModel(wordlist);
 
-    if(args.length == 0) {
-      System.out.println("You must specify -text or -GUI");
-      System.exit(1);
-    } else if(args[0].equals("-text")) {
+    if(args.length != 0 && args[0].equals("-text")) {
       TextGame theGame = new TextGame(model); 
-    } else if(args[0].equals("-GUI")) {
+    } else {
     
       SwingUtilities.invokeLater(new Runnable() {
 	    @Override
