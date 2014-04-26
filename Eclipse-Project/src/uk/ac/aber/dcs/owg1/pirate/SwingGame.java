@@ -1,6 +1,5 @@
 package uk.ac.aber.dcs.owg1.pirate;
 
-import java.io.File;
 import java.io.IOException;
 import java.util.concurrent.Callable;
 import java.awt.Point;
