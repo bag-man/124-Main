@@ -1,7 +1,9 @@
 package uk.ac.aber.dcs.owg1.pirate;
+
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
+import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.Random;
 
@@ -12,7 +14,7 @@ public class Dictionary {
   private Random rand = new Random();
 
   public Dictionary(String fileName) throws IOException {
-    BufferedReader file = new BufferedReader(new FileReader(fileName));
+    BufferedReader file = new BufferedReader(new InputStreamReader(getClass().getResourceAsStream(fileName)));
     numRecords = Integer.parseInt(file.readLine());
 
     for(int i=0; i < numRecords; i++) {

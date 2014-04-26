@@ -243,8 +243,8 @@ public class SwingGame extends JFrame {
 
     // Add images
     try {                
-      imagePirateShip = ImageIO.read(new File("../img/ship.png"));
-      imagePirate = ImageIO.read(new File("../img/pirate.png"));
+      imagePirateShip = ImageIO.read(getClass().getResource("img/ship.png"));
+      imagePirate = ImageIO.read(getClass().getResource("img/pirate.png"));
     } catch (IOException e) {
       System.out.println("Error: " + e);
     }
