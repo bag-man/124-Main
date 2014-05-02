@@ -1,0 +1,18 @@
+\contentsline {section}{\numberline {0.1}How to run this software}{1}
+\contentsline {section}{\numberline {0.2}Analysis}{1}
+\contentsline {subsection}{\numberline {0.2.1}Requirements}{2}
+\contentsline {subsection}{\numberline {0.2.2}Runtime Environment}{2}
+\contentsline {subsection}{\numberline {0.2.3}My Solution}{2}
+\contentsline {subsection}{\numberline {0.2.4}Use Case Diagram}{3}
+\contentsline {section}{\numberline {0.3}Design}{3}
+\contentsline {subsection}{\numberline {0.3.1}PirateApp}{3}
+\contentsline {subsection}{\numberline {0.3.2}Dictionary}{4}
+\contentsline {subsection}{\numberline {0.3.3}TextGame}{4}
+\contentsline {subsection}{\numberline {0.3.4}GameModel}{4}
+\contentsline {subsection}{\numberline {0.3.5}SwingGame}{4}
+\contentsline {section}{\numberline {0.4}Algorithm Design}{4}
+\contentsline {subsection}{\numberline {0.4.1}Initialise}{6}
+\contentsline {subsection}{\numberline {0.4.2}Get Visible}{6}
+\contentsline {subsection}{\numberline {0.4.3}Try This}{6}
+\contentsline {subsection}{\numberline {0.4.4}Try Word}{7}
+\contentsline {subsection}{\numberline {0.4.5}Won}{7}
