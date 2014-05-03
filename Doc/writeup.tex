@@ -85,13 +85,14 @@ One extra feature that I decided to add was the ability to reset the game in the
 \subsection{SwingGame}
 This class is rather large in terms of code, that is because it will contain all of the data for how the GUI is to be presented and laid out. All of this code is contained within the createGui() method, this is just to keep it neat. The other methods are for the creation of popups or actions to be performed when a button is clicked. I have also created an AddButton() method that uses Callable to make the creation of a button and event listener/handler much easier. 
 
-\begin{figure}[!htb]
-  \centering
-  \includegraphics[scale=0.5]{ClassDiagram}
+\begin{figure}[!p]
+\subsection{Class Diagram}
+  \centerline{\includegraphics[scale=0.7]{ClassDiagram}}
   \caption{This shows how the different classes will be laid out}
   \label{fig:label}
 \end{figure}
 
+\newpage
 
 \section{Algorithm Design}
 I believe that the easiest way of creating the actual hangman operation of the game, a hidden word that gets revealed, will be to have two arraylists, one character array that contains the letters in the hidden word, and then a boolean array that determines whether or not the character in the word has been found. So for example, I would have two arrays, that would be worked on to produce the visible data for the user. 
@@ -177,5 +178,36 @@ if value != true
 
 return true
 \end{lstlisting}
+
+\section{Testing}
+Here I shall test all of the inputs for my program, both from the command line and GUI.
+
+\subsection{Test results table}
+Lots of tables here.
+
+\subsection{Test screenshots}
+Screenshots of the application running. 
+
+\subsection{JUnit tests}
+Screenshot of Junit results and some information.
+
+\section{Evaluation}
+Overall I think that I have done quite well on this project, my time was managed fairly well and I have created an application that meets all of the design requirements.
+
+\subsection{Flair}
+In making this project I got to learn about a few new technologies. For example I had never used Callable in Java to pass a method to another method. I used this to create the AddButton method that makes life much easier for creating eventlisteners and placing buttons on the GUI. Another technology that I am currently using is LaTeX to write this report; after using Vim to create my project it feels much more natural to be editing text in Vim and compiling it with LaTeX than it does in a traditional word processor.
+
+As I just mentioned I didn't use an IDE for the bulk of the Java development, although in the later stages I did make an eclipse project so that I could easily generate the sequence diagram and class diagrams. I also made use of Git and had my own github repository which allowed me to use source version control making my life a lot easier!
+
+The main bit of obvious flair to the user though is the reset button, this wasn't asked for in the specification, but I thought that it was a worthy addition to the final program as it allowed me to easily test the game, and the user to easily repeat the game. Its addition wasn't too hard but it did require a few extra methods here and there. 
+
+
+\subsection{Self Evaluation}
+I think that I should get at least 70\% for this assignment, as it meets all of the required specifications and is well documented and designed. That combined with the implementation of the AddButton method and the ResetButton should hopefully get me a first. 
+
+Sadly I do feel that I may loose marks on my visuals, as the MS Paint pirate and ship are not aesthetically pleasing, and not animated. The pirate does "walk" the plank, but I think that a smoother and more intricate animation would probably have been preferred. Sadly I was unable to do this as I wanted to spend more time working on the core of the program, rather than the superficial effects.
+
+Doing this assignment has helped me learn about working with Swing and JUnit, two things that I had never attempted before now, I was surprised by how simple and dare I say old fashioned Swing is, and once I had figured out how to actually run JUnit tests impressed by how effective and easy they were to use. I've also learned how to use LaTeX to compile this report, which I think is an invaluable skill that I had wished I had learned sooner.
+
 
 \end{document}
