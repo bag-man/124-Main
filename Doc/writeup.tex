@@ -3,6 +3,7 @@
 \usepackage{listings}
 \usepackage{multicol}
 \usepackage{float}
+\usepackage[section]{placeins}
 
 \makeatletter
 \newcommand*{\toccontents}{\@starttoc{toc}}
@@ -287,16 +288,16 @@ Screenshots of the application running.
 \includegraphics[scale=0.5]{TestScreenshots/6}
 \caption{Screenshot 6} 
 \end{figure}
+\end{multicols}
 
 \begin{figure}[H]
 \centering
 \includegraphics[scale=0.5]{TestScreenshots/7}
 \caption{Screenshot 7} 
 \end{figure}
-\end{multicols}
 
 
-\subsection{JUnit tests}
+\section{JUnit tests}
 To make sure that my program was working to the interface that I was provided, I created some JUnit unit tests, that allowed me to quickly and easily see if the GameModel was working correctly. This was really useful and not that hard to do so it was definitely worth while. I wrote a JUnit test for each of the methods specified in the GameModelInterface. You can view the source code to see more about how I produced these tests.
 
 Below you can see the screenshot of the results of these tests.

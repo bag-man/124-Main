@@ -20,7 +20,7 @@
 \contentsline {section}{\numberline {0.5}Testing}{9}
 \contentsline {subsection}{\numberline {0.5.1}Test results table}{10}
 \contentsline {subsection}{\numberline {0.5.2}Test screenshots}{10}
-\contentsline {subsection}{\numberline {0.5.3}JUnit tests}{14}
-\contentsline {section}{\numberline {0.6}Evaluation}{14}
-\contentsline {subsection}{\numberline {0.6.1}Flair}{14}
-\contentsline {subsection}{\numberline {0.6.2}Self Evaluation}{15}
+\contentsline {section}{\numberline {0.6}JUnit tests}{14}
+\contentsline {section}{\numberline {0.7}Evaluation}{15}
+\contentsline {subsection}{\numberline {0.7.1}Flair}{15}
+\contentsline {subsection}{\numberline {0.7.2}Self Evaluation}{15}
