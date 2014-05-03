@@ -11,7 +11,8 @@
 \title{CS124 Individual Project  - Down the Scurvy Dog  Write Up}
 \author{Owen Garland - owg1@aber.ac.uk}
 \maketitle
-\toccontents
+%\toccontents
+\tableofcontents
 
 \section{How to run this software}
 Download the .jar file, then either double click on it in Windows, or from the command line on any OS run. use the -text flag to use the command line version. 
@@ -85,10 +86,17 @@ One extra feature that I decided to add was the ability to reset the game in the
 \subsection{SwingGame}
 This class is rather large in terms of code, that is because it will contain all of the data for how the GUI is to be presented and laid out. All of this code is contained within the createGui() method, this is just to keep it neat. The other methods are for the creation of popups or actions to be performed when a button is clicked. I have also created an AddButton() method that uses Callable to make the creation of a button and event listener/handler much easier. 
 
-\begin{figure}[!p]
-\subsection{Class Diagram}
+\begin{figure}
+\subsection{Class Diagram} 
   \centerline{\includegraphics[scale=0.7]{ClassDiagram}}
   \caption{This shows how the different classes will be laid out}
+  \label{fig:label}
+\end{figure}
+
+\begin{figure}
+\subsection{Sequence Diagram}
+  \centerline{\includegraphics[scale=0.7]{SequenceDiagram}}
+  \caption{This sequence Diagram shows what would happen if a user opened the application and submitted a character until they lost}
   \label{fig:label}
 \end{figure}
 
