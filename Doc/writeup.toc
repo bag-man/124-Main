@@ -1,27 +1,26 @@
-\contentsline {section}{\numberline {0.1}How to run this software}{2}
-\contentsline {section}{\numberline {0.2}Analysis}{3}
-\contentsline {subsection}{\numberline {0.2.1}Requirements}{3}
-\contentsline {subsection}{\numberline {0.2.2}Runtime Environment}{3}
-\contentsline {subsection}{\numberline {0.2.3}My Solution}{3}
-\contentsline {subsection}{\numberline {0.2.4}Use Case Diagram}{4}
-\contentsline {section}{\numberline {0.3}Design}{4}
-\contentsline {subsection}{\numberline {0.3.1}PirateApp}{4}
-\contentsline {subsection}{\numberline {0.3.2}Dictionary}{5}
-\contentsline {subsection}{\numberline {0.3.3}TextGame}{5}
-\contentsline {subsection}{\numberline {0.3.4}GameModel}{5}
-\contentsline {subsection}{\numberline {0.3.5}SwingGame}{5}
-\contentsline {subsection}{\numberline {0.3.6}Class Diagram}{6}
-\contentsline {subsection}{\numberline {0.3.7}Sequence Diagram}{7}
-\contentsline {section}{\numberline {0.4}Algorithm Design}{8}
-\contentsline {subsection}{\numberline {0.4.1}Initialise}{8}
-\contentsline {subsection}{\numberline {0.4.2}Get Visible}{8}
-\contentsline {subsection}{\numberline {0.4.3}Try This}{9}
-\contentsline {subsection}{\numberline {0.4.4}Try Word}{9}
-\contentsline {subsection}{\numberline {0.4.5}Won}{9}
-\contentsline {section}{\numberline {0.5}Testing}{10}
+\contentsline {section}{\numberline {0.1}How to run this software}{1}
+\contentsline {section}{\numberline {0.2}Analysis}{2}
+\contentsline {subsection}{\numberline {0.2.1}Requirements}{2}
+\contentsline {subsection}{\numberline {0.2.2}Runtime Environment}{2}
+\contentsline {subsection}{\numberline {0.2.3}My Solution}{2}
+\contentsline {section}{\numberline {0.3}Design}{3}
+\contentsline {subsection}{\numberline {0.3.1}PirateApp}{3}
+\contentsline {subsection}{\numberline {0.3.2}Dictionary}{4}
+\contentsline {subsection}{\numberline {0.3.3}TextGame}{4}
+\contentsline {subsection}{\numberline {0.3.4}GameModel}{4}
+\contentsline {subsection}{\numberline {0.3.5}SwingGame}{4}
+\contentsline {subsection}{\numberline {0.3.6}Class Diagram}{5}
+\contentsline {subsection}{\numberline {0.3.7}Sequence Diagram}{6}
+\contentsline {section}{\numberline {0.4}Algorithm Design}{7}
+\contentsline {subsection}{\numberline {0.4.1}Initialise}{7}
+\contentsline {subsection}{\numberline {0.4.2}Get Visible}{7}
+\contentsline {subsection}{\numberline {0.4.3}Try This}{8}
+\contentsline {subsection}{\numberline {0.4.4}Try Word}{8}
+\contentsline {subsection}{\numberline {0.4.5}Won}{8}
+\contentsline {section}{\numberline {0.5}Testing}{9}
 \contentsline {subsection}{\numberline {0.5.1}Test results table}{10}
 \contentsline {subsection}{\numberline {0.5.2}Test screenshots}{10}
-\contentsline {subsection}{\numberline {0.5.3}JUnit tests}{10}
-\contentsline {section}{\numberline {0.6}Evaluation}{10}
-\contentsline {subsection}{\numberline {0.6.1}Flair}{10}
-\contentsline {subsection}{\numberline {0.6.2}Self Evaluation}{11}
+\contentsline {subsection}{\numberline {0.5.3}JUnit tests}{14}
+\contentsline {section}{\numberline {0.6}Evaluation}{14}
+\contentsline {subsection}{\numberline {0.6.1}Flair}{14}
+\contentsline {subsection}{\numberline {0.6.2}Self Evaluation}{15}

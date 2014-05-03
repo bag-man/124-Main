@@ -1,6 +1,8 @@
 \documentclass[notitlepage]{report}
 \usepackage{graphicx}
 \usepackage{listings}
+\usepackage{multicol}
+\usepackage{float}
 
 \makeatletter
 \newcommand*{\toccontents}{\@starttoc{toc}}
@@ -10,9 +12,10 @@
 
 \title{CS124 Individual Project  - Down the Scurvy Dog  Write Up}
 \author{Owen Garland - owg1@aber.ac.uk}
+\date{}
 \maketitle
-%\toccontents
-\tableofcontents
+\toccontents
+%\tableofcontents
 
 \section{How to run this software}
 Download the .jar file, then either double click on it in Windows, or from the command line on any OS run. use the -text flag to use the command line version. 
@@ -32,14 +35,14 @@ After examining the interface it became clear that I would need to create a game
 
 \subsection{Requirements}
 The application must: 
-\begin{itemize}
+\begin{enumerate}
   \item Implement the GameModel Interface provided
   \item Read from the piratewords.txt file provided
   \item Provide a graphical and text based interface
   \item Be pirate themed
   \item Have a JUnit tests written for it
   \item Be packaged in a JAR file
-\end{itemize}
+\end{enumerate}
 
 \subsection{Runtime Environment}
 The application will be written in the latest version of Java, and using the Swing library. There was no target OS defined so it is assumed that it should be able to run on multiple platforms. I will be developing it on Linux, and then testing on Windows and Linux. Sadly I don¿t have a Apple device to test on, however a JAR file that runs on Windows and Linux should work well on Mac as well. 
@@ -52,7 +55,6 @@ The view and controller functions of this design are merged into one for this im
 In summary I will have the GameModel which is programmed from the interface given, and two view/controllers, one for the GUI and one for the text version of the game. 
 
 
-\subsection{Use Case Diagram}
 \begin{figure}[!htb]
   \centering
   \includegraphics[scale=0.5]{UseCaseDiagram}
@@ -67,7 +69,6 @@ I have decided to only have five classes in my solution, one for running the mai
 
 \subsection{PirateApp}
 This is the class that contains the Main method and runs the application. It handles a few small administration tasks such as reading in the command line arguments and creating an object of the Dictionary class for the game model to use. Then, depending on the command line options it will pass the model object across to either the SwingGame class or the Text Game class. 
-
 
 
 \subsection{Dictionary}
@@ -188,16 +189,122 @@ return true
 \end{lstlisting}
 
 \section{Testing}
-Here I shall test all of the inputs for my program, both from the command line and GUI.
+Here I shall test all of the inputs for my program, both from the command line and GUI. All of these tests are used with a test word file called word.txt. This file contains the two words "ahoy" and "ye"; this is done so that I know what the word to guess is.
 
+\newpage
+\begin{figure}
 \subsection{Test results table}
-Lots of tables here.
+  \centerline{\includegraphics[scale=0.5]{testtable}}
+  \label{fig:label}
+\end{figure}
 
+
+\newpage
 \subsection{Test screenshots}
 Screenshots of the application running. 
+\begin{multicols}{2}
+
+\begin{figure}[H]
+\centering
+\includegraphics[scale=0.5]{TestScreenshots/0}
+\caption{Screenshot 0}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\includegraphics[scale=0.5]{TestScreenshots/1a}
+\caption{Screenshot 1a}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\includegraphics[scale=0.5]{TestScreenshots/1b}
+\caption{Screenshot 1b}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\includegraphics[scale=0.5]{TestScreenshots/1c}
+\caption{Screenshot 1c}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\includegraphics[scale=0.5]{TestScreenshots/1d}
+\caption{Screenshot 1d}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\includegraphics[scale=0.5]{TestScreenshots/2a}
+\caption{Screenshot 2a}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\includegraphics[scale=0.5]{TestScreenshots/2b}
+\caption{Screenshot 2b}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\includegraphics[scale=0.5]{TestScreenshots/3a}
+\caption{Screenshot 3a}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\includegraphics[scale=0.5]{TestScreenshots/3b}
+\caption{Screenshot 3b}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\includegraphics[scale=0.5]{TestScreenshots/3c}
+\caption{Screenshot 3c}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\includegraphics[scale=0.5]{TestScreenshots/3d}
+\caption{Screenshot 3d}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\includegraphics[scale=0.5]{TestScreenshots/4}
+\caption{Screenshot 4} 
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\includegraphics[scale=0.5]{TestScreenshots/5}
+\caption{Screenshot 5} 
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\includegraphics[scale=0.5]{TestScreenshots/6}
+\caption{Screenshot 6} 
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\includegraphics[scale=0.5]{TestScreenshots/7}
+\caption{Screenshot 7} 
+\end{figure}
+\end{multicols}
+
 
 \subsection{JUnit tests}
-Screenshot of Junit results and some information.
+To make sure that my program was working to the interface that I was provided, I created some JUnit unit tests, that allowed me to quickly and easily see if the GameModel was working correctly. This was really useful and not that hard to do so it was definitely worth while. I wrote a JUnit test for each of the methods specified in the GameModelInterface. You can view the source code to see more about how I produced these tests.
+
+Below you can see the screenshot of the results of these tests.
+
+\begin{figure}
+  \centerline{\includegraphics[scale=0.5]{junit}}
+  \label{fig:label}
+\end{figure}
 
 \section{Evaluation}
 Overall I think that I have done quite well on this project, my time was managed fairly well and I have created an application that meets all of the design requirements.

@@ -1,0 +1,20 @@
+ID,Description,Input,Expected,Pass/Fail,Screenshot
+0,Application open,,The application opens,Pass/Fail,0
+1a,Guess Incorrectly,z,"-1 guess, character appears used, pirate moves",Pass/Fail,1a
+1b,,1,"-1 guess, character appears used, pirate moves",Pass/Fail,1b
+1c,,#,"-1 guess, character appears used, pirate moves",Pass/Fail,1c
+1d,,wrongword,"-5 gues, pirate moves halfway",Pass/Fail,1d
+2a,Guess Correctly,a,"First letter ""a"" will reveal itself",Pass/Fail,2a
+2b,,ahoy,"Whole word ""ahoy"" will reveal itself, win popup appears",Pass/Fail,2b
+3a,Win with correct character guesses,a,"First letter ""a"" will reveal itself",Pass/Fail,3a
+3b,,h,"Second letter ""h"" will reveal itself",Pass/Fail,3b
+3c,,o,"Third letter ""o"" will reveal itself",Pass/Fail,3c
+3d,,y,"Fourth letter ""y"" will reveal, win popup appears",Pass/Fail,3d
+4,Lose with character guesses,0 - 9,"0 - 9 in guessed letters, lose popup appears, pirate in the sea",Pass/Fail,4
+5,Lose with word guesses,wrong + word,"lose popup appears, pirate in the sea",Pass/Fail,5
+6,Reset game from main window,click reset,"word changes to ""ye"", which looks like ""**""",Pass/Fail,6
+7,Reset game from lose popup,click reset,"word changes to ""ye"", which looks like ""**""",Pass/Fail,6
+8,Reset game from win popup,click reset,"word changes to ""ye"", which looks like ""**""",Pass/Fail,6
+9,Quit game from lose popup,click quit,Application exits,Pass/Fail,
+10,Quit game from win popup,click quit,Application exits,Pass/Fail,
+11,Test game from command line,-text,Command line game runs,Pass/Fail,7
