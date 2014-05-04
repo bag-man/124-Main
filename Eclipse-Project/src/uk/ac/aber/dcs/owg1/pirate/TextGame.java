@@ -1,11 +1,22 @@
 package uk.ac.aber.dcs.owg1.pirate;
 import java.util.Scanner;
 
+/**
+ * The Class TextGame.
+ */
 public class TextGame {
 
+  /** The m is short hand for Model */
   private GameModel m;
+  
+  /** The reader. */
   Scanner reader = new Scanner(System.in);
 
+  /**
+   * Instantiates a new text game.
+   *
+   * @param model the model
+   */
   public TextGame(GameModel model) {
     m = model;
 

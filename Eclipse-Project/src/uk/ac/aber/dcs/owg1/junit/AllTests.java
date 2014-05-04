@@ -10,14 +10,22 @@ import uk.ac.aber.dcs.owg1.pirate.Dictionary;
 
 import java.io.IOException;
 
-
 /* To run these tests, at the command line run; "java org.junit.runner.JUnitCore AllTests", and ensure that junit.jar is in your classpath. */
 
+/**
+ * The Class AllTests.
+ */
 public class AllTests {
 
+  /** The model. */
   private GameModel model;
+  
+  /** The wordlist. */
   private Dictionary wordlist;
 
+  /**
+   * Initialises the tests
+   */
   @Before
   public void init() {
 
@@ -31,6 +39,9 @@ public class AllTests {
 
   }
 
+  /**
+   * Test visible.
+   */
   @Test
   public void testVisible() { 
     assertEquals("Word has not been censored.", model.getVisible(), "****");
@@ -38,11 +49,17 @@ public class AllTests {
     assertEquals("Word has not had a character revealed.", model.getVisible(), "a***");
   }
 
+  /**
+   * Test hidden.
+   */
   @Test
   public void testHidden() { 
     assertEquals("Word has not loaded correctly.", model.getHidden(), "ahoy");
   }
 
+  /**
+   * Test guess left.
+   */
   @Test
   public void testGuessLeft() { 
     assertEquals("Guesses haven't been set at 10.", model.guessLeft(), 10);
@@ -50,6 +67,9 @@ public class AllTests {
     assertEquals("Guesses haven't been reduced.", model.guessLeft(), 9);
   }
 
+  /**
+   * Test get letters.
+   */
   @Test
   public void testGetLetters() { 
     model.tryThis('x');
@@ -58,16 +78,25 @@ public class AllTests {
     assertEquals("Incorrect guess not added to string.", model.getLetters(), "x z ");
   }
 
+  /**
+   * Test try this.
+   */
   @Test
   public void testTryThis() { 
     assertEquals("Character has not been found.", model.tryThis('a'), true);
   }
 
+  /**
+   * Test try word.
+   */
   @Test
   public void testTryWord() { 
     assertEquals("Word has not been found.", model.tryWord("ahoy"), true);
   }
 
+  /**
+   * Test won.
+   */
   @Test
   public void testWon() { 
     model.tryWord("ahoy");

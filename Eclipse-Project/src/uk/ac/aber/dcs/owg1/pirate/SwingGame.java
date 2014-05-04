@@ -16,16 +16,37 @@ import javax.swing.ImageIcon;
 import javax.swing.JSeparator;
 import javax.imageio.ImageIO;
 
+/**
+ * The Class SwingGame.
+ */
 public class SwingGame extends JFrame {
 
+  /** m is shorthand for Model */
   private GameModel m;
+  
+  /** The input area1. */
   private JTextField inputArea1;
+  
+  /** The pirate. */
   private JLabel label1, label2, label3, pirateShip, pirate;
+  
+  /** The popup. */
   private JDialog popup;
+  
+  /** The image pirate. */
   private BufferedImage imagePirateShip, imagePirate;
+  
+  /** The remaining gos. */
   private int piratePos = 180, remainingGos;
+  
+  /** The used letters. */
   private String targetWord, usedLetters;
 
+  /**
+   * Instantiates a new swing game.
+   *
+   * @param model the model
+   */
   public SwingGame(GameModel model) {
 
     m = model;
@@ -35,6 +56,11 @@ public class SwingGame extends JFrame {
 
   }
 
+  /**
+   * Submit guess.
+   *
+   * @return the void
+   */
   private Void submitGuess() {
 
     String guess = inputArea1.getText();
@@ -62,6 +88,11 @@ public class SwingGame extends JFrame {
 
   }
 
+  /**
+   * Reset game.
+   *
+   * @return the void
+   */
   private Void resetGame() {
 
     inputArea1.setText("");
@@ -80,6 +111,9 @@ public class SwingGame extends JFrame {
 
   }
 
+  /**
+   * Lose game.
+   */
   private void loseGame() {
 
     int pos = 125;
@@ -89,6 +123,11 @@ public class SwingGame extends JFrame {
   }
 
 
+  /**
+   * Exit.
+   *
+   * @return the void
+   */
   private Void exit() {
 
     System.exit(0);
@@ -97,6 +136,17 @@ public class SwingGame extends JFrame {
   }
 
 
+  /**
+   * Adds the button.
+   *
+   * @param x the x position
+   * @param y the y position
+   * @param w the width
+   * @param h the height
+   * @param name the name
+   * @param function the function to be ran
+   * @return jbutton
+   */
   private JButton AddButton(int x, int y, int w, int h, String name, Callable<Void> function) {
 
     final Callable<Void> runThis = function;
@@ -118,6 +168,9 @@ public class SwingGame extends JFrame {
 
   }
 
+  /**
+   * Update text.
+   */
   private void updateText() {
 
     targetWord = m.getVisible();
@@ -132,6 +185,11 @@ public class SwingGame extends JFrame {
 
   }
 
+  /**
+   * Pop up.
+   *
+   * @param message the message
+   */
   private void popUp(String message) {
 
     JButton quitButton = AddButton(0, 0, 120, 25, "Quit",  new Callable<Void>() {
@@ -168,6 +226,9 @@ public class SwingGame extends JFrame {
 
   }
 
+  /**
+   * Creates the gui.
+   */
   private void createGui() {
 
     // Window settings

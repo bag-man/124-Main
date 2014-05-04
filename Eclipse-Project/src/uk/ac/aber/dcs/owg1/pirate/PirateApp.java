@@ -3,11 +3,22 @@ package uk.ac.aber.dcs.owg1.pirate;
 import java.io.IOException;
 import javax.swing.SwingUtilities;
 
+/**
+ * The Class PirateApp.
+ */
 public class PirateApp {
    
+  /** The wordlist. */
   private static Dictionary wordlist;
+  
+  /** The model. */
   private static GameModel model;
 
+  /**
+   * The main method.
+   *
+   * @param args the arguments
+   */
   public static void main(String[] args) {
 
     try {

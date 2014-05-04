@@ -3,22 +3,48 @@ package uk.ac.aber.dcs.owg1.pirate;
 import java.util.ArrayList;
 import java.util.Collections;
 
+/**
+ * The Class GameModel.
+ */
 public class GameModel implements GameModelInterface {
 
+  /** The letters. */
   private ArrayList<Character> letters = new ArrayList<Character>();
+  
+  /** The found. */
   private ArrayList<Boolean> found = new ArrayList<Boolean>();
+  
+  /** The word. */
   private String word;
+  
+  /** The guesses. */
   private String guesses;
+  
+  /** The length. */
   private int length;
+  
+  /** The num guesses left. */
   private int numGuessesLeft;
+  
+  /** The wordlist. */
   private Dictionary wordlist;
 
+  /**
+   * Instantiates a new game model.
+   *
+   * @param w is the wordlist
+   */
   public GameModel(Dictionary w) {
     wordlist = w;
     word = wordlist.selectRandomWord();
     initialise(word);
   }
 
+  /**
+   * Initialise.
+   *
+   * @param w the word
+   */
   public void initialise(String w) {
     guesses = "";
     word = w;
@@ -35,6 +61,9 @@ public class GameModel implements GameModelInterface {
     length = letters.size();
   }
 
+  /* 
+   * @see uk.ac.aber.dcs.owg1.pirate.GameModelInterface#getVisible()
+   */
   public String getVisible() {
     String result = "";
     for(int i=0; i<length; i++) {
@@ -48,18 +77,30 @@ public class GameModel implements GameModelInterface {
     return result;
   };
 
+  /* 
+   * @see uk.ac.aber.dcs.owg1.pirate.GameModelInterface#getHidden()
+   */
   public String getHidden() {
     return word;
   };
 
+  /* 
+   * @see uk.ac.aber.dcs.owg1.pirate.GameModelInterface#guessLeft()
+   */
   public int guessLeft() {
     return numGuessesLeft;
   };
 
+  /* 
+   * @see uk.ac.aber.dcs.owg1.pirate.GameModelInterface#getLetters()
+   */
   public String getLetters() {
     return guesses;
   }
 
+  /* 
+   * @see uk.ac.aber.dcs.owg1.pirate.GameModelInterface#tryThis(char)
+   */
   public boolean tryThis(char letter){
     int i;
     boolean correct = false;
@@ -81,6 +122,9 @@ public class GameModel implements GameModelInterface {
     return correct;
   };
 
+  /* 
+   * @see uk.ac.aber.dcs.owg1.pirate.GameModelInterface#tryWord(java.lang.String)
+   */
   public boolean tryWord(String guess) {
     if(guess.equals(word)) {
       Collections.fill(found, Boolean.TRUE);
@@ -91,6 +135,11 @@ public class GameModel implements GameModelInterface {
     }
   };
 
+  /**
+   * Won.
+   *
+   * @return true, if successful
+   */
   public boolean won() {
     for (boolean correct : found) {
       if (!correct)
@@ -99,6 +148,11 @@ public class GameModel implements GameModelInterface {
     return true;
   }
 
+  /**
+   * Select new word.
+   *
+   * @return true, if successful
+   */
   public boolean selectNewWord() {
     String newWord = wordlist.selectRandomWord();
     if(!word.equals(newWord)) {
