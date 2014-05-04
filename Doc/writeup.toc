@@ -18,9 +18,9 @@
 \contentsline {subsection}{\numberline {0.4.4}Try Word}{8}
 \contentsline {subsection}{\numberline {0.4.5}Won}{8}
 \contentsline {section}{\numberline {0.5}Testing}{9}
-\contentsline {subsection}{\numberline {0.5.1}Test results table}{10}
+\contentsline {subsection}{\numberline {0.5.1}Test results table}{9}
 \contentsline {subsection}{\numberline {0.5.2}Test screenshots}{10}
-\contentsline {section}{\numberline {0.6}JUnit tests}{14}
-\contentsline {section}{\numberline {0.7}Evaluation}{15}
-\contentsline {subsection}{\numberline {0.7.1}Flair}{15}
-\contentsline {subsection}{\numberline {0.7.2}Self Evaluation}{15}
+\contentsline {section}{\numberline {0.6}JUnit tests}{13}
+\contentsline {section}{\numberline {0.7}Evaluation}{14}
+\contentsline {subsection}{\numberline {0.7.1}Flair}{14}
+\contentsline {subsection}{\numberline {0.7.2}Self Evaluation}{14}
