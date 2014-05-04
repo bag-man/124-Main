@@ -11,7 +11,7 @@
 
 \begin{document}
 
-\title{CS124 Individual Project  - Drown the Scurvy Dog  Write Up}
+\title{CS124 Individual Project  - Drown the Scurvy Dog - Write Up}
 \author{Owen Garland - owg1@aber.ac.uk}
 \date{}
 \maketitle
@@ -46,7 +46,7 @@ The application must:
 \end{enumerate}
 
 \subsection{Runtime Environment}
-The application will be written in the latest version of Java, and using the Swing library. There was no target OS defined so it is assumed that it should be able to run on multiple platforms. I will be developing it on Linux, and then testing on Windows and Linux. Sadly I don¿t have a Apple device to test on, however a JAR file that runs on Windows and Linux should work well on Mac as well. 
+The application will be written in the latest version of Java, and using the Swing library. There was no target OS defined so it is assumed that it should be able to run on multiple platforms. I will be developing it on Linux, and then testing on Windows and Linux. Sadly I don't have a Apple device to test on, however a JAR file that runs on Windows and Linux should work well on Mac as well. 
 
 \subsection{My Solution}
 I will be using the Model View Controller design pattern, as this will allow me to break the problem down into more logical constituent parts. The most import part of this design pattern is the model, as that is what actually performs the functions of the program. Thanks to the interface that I have been given the model will actually be quite easy to create as the needed functions and parameters are already defined for me, I just need to implement them. 
@@ -66,7 +66,7 @@ In summary I will have the GameModel which is programmed from the interface give
 \section{Design}
 I have already identified the need for a few classes in my analysis of the problem. Now I will go into more detail about what the classes will contain and how they will be organised. 
 
-I have decided to only have five classes in my solution, one for running the main method and launching the application, one class for loading the piratewords.txt dictionary file, a game model class that will implement the interface that I was given, and then a text and gui class for the two different views of the games. 
+I have decided to only have five classes in my solution, one for running the main method and launching the application, one class for loading the piratewords.txt dictionary file, a game model class that will implement the interface that I was given, and then a text and GUI class for the two different views of the games. 
 
 \subsection{PirateApp}
 This is the class that contains the Main method and runs the application. It handles a few small administration tasks such as reading in the command line arguments and creating an object of the Dictionary class for the game model to use. Then, depending on the command line options it will pass the model object across to either the SwingGame class or the Text Game class. 
@@ -76,7 +76,7 @@ This is the class that contains the Main method and runs the application. It han
 This class will simply load a given text file from the filesystem, and parse it. It will also provide a method for randomly selecting a word from the loaded text file. In this case it will be set to load the piratewords.txt file that has been provided; however it was also used to load a text file with just one word in for the JUnit tests. 
 
 \subsection{TextGame}
-This class is actually a very small class, as it only really has one function, to take the users input from the command line, pass it to the GameModel and then display the results. It doesn¿t even have any methods, I will just run a While loop in the constructor that takes the input until either the game is won or lost. 
+This class is actually a very small class, as it only really has one function, to take the users input from the command line, pass it to the GameModel and then display the results. It doesn't even have any methods, I will just run a While loop in the constructor that takes the input until either the game is won or lost. 
 
 \subsection{GameModel}
 This is the most important class in the design as it performs all of the algorithms that the game uses. It implements the GameModelInterface that we were given in the specification. As well as the methods included in the interface I have also added a couple of methods that I thought would be useful. 
@@ -147,7 +147,7 @@ return result
  
 
 \subsection{Try This}
-This method takes a char as an argument called letter, and then tests whether the char is used in the word, and then if it is correct it sets the position that it is at in teh found array list to true, else it removes a guess from the number of guesses the player has. 
+This method takes a char as an argument called letter, and then tests whether the char is used in the word, and then if it is correct it sets the position that it is at in the found array list to true, else it removes a guess from the number of guesses the player has. 
 
 \begin{lstlisting}
 correct = false;
@@ -167,7 +167,7 @@ return correct;
 \end{lstlisting}
 
 \subsection{Try Word}
-This method takes a String as an argument called guess. It simply test whether the guess is equal to the hidden word. If it is then it fill the found arraylist to true, if it isn¿t correct however it removes five guesses from the remaining guesses left. 
+This method takes a String as an argument called guess. It simply test whether the guess is equal to the hidden word. If it is then it fill the found arraylist to true, if it isn't correct however it removes five guesses from the remaining guesses left. 
 
 \begin{lstlisting}
 if guess == word
