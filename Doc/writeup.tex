@@ -19,7 +19,7 @@
 %\tableofcontents
 
 \section{How to run this software}
-Download the .jar file, then either double click on it in Windows, or from the command line on any OS run. use the -text flag to use the command line version. 
+Download the .jar file, then either double click on it in Windows, or from the command line on any OS run use the following code, use the -text flag to use the command line version. 
 
 \begin{lstlisting}
   java -jar PirateApp.jar 
@@ -59,7 +59,7 @@ In summary I will have the GameModel which is programmed from the interface give
 \begin{figure}[!htb]
   \centering
   \includegraphics[scale=0.5]{UseCaseDiagram}
-  \caption{This shows how the user will interact with the system}
+  \caption{This Use Case Diagram shows how the user will interact with the system}
   \label{fig:label}
 \end{figure}
 
@@ -131,7 +131,7 @@ length = letters.size
 \end{lstlisting}
 
 \subsection{Get Visible}
-This method will perform the operation that is demonstrated in figure 3. It simply performs an TRUE operation on the letters arraylist using the found arraylist. 
+This method will perform the operation that is demonstrated in figure 4. It simply performs an TRUE operation on the letters arraylist using the found arraylist. 
 
 \begin{lstlisting}
 for length
@@ -297,13 +297,11 @@ Screenshots of the application running.
 
 
 \section{JUnit tests}
-To make sure that my program was working to the interface that I was provided, I created some JUnit unit tests, that allowed me to quickly and easily see if the GameModel was working correctly. This was really useful and not that hard to do so it was definitely worth while. I wrote a JUnit test for each of the methods specified in the GameModelInterface. You can view the source code to see more about how I produced these tests.
-
-Below you can see the screenshot of the results of these tests.
+To make sure that my program was working to the interface that I was provided, I created some JUnit unit tests, that allowed me to quickly and easily see if the GameModel was working correctly. This was really useful and not that hard to do so it was definitely worth while. I wrote a JUnit test for each of the methods specified in the GameModelInterface. 
 
 \begin{figure}
   \centerline{\includegraphics[scale=0.5]{junit}}
-  \label{fig:label}
+  \caption{JUnit tests running successfully}
 \end{figure}
 
 \section{Evaluation}
